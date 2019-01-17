@@ -1,4 +1,4 @@
-package com.victer.paypaypig.mylibrary;
+package com.duck.mylibrary;
 
 import org.junit.Test;
 

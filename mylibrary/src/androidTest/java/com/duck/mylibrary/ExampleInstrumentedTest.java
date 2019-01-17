@@ -1,4 +1,4 @@
-package com.victer.paypaypig.mylibrary;
+package com.duck.mylibrary;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
