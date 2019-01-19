@@ -24,6 +24,35 @@
     <attr name="contentColor" format="color"/>
     <attr name="contentBackground" format="reference|color"/>
 
+    <declare-styleable name="MyAttrView">
+        <attr name="av_icon_drawable_margin" format="dimension"/>
+        <attr name="av_icon_drawable_left" format="reference"/>
+        <attr name="av_icon_drawable_top" format="reference"/>
+        <attr name="av_icon_drawable_right" format="reference"/>
+        <attr name="av_icon_drawable_bottom" format="reference"/>
+        <attr name="av_icon_drawable_mWidth" format="dimension"/>
+        <attr name="av_icon_drawable_mHeight" format="dimension"/>
+        <attr name="av_icon_drawable_tint" format="color"/>
+
+        <attr name="av_contentSizeSp" format="dimension"/>
+        <attr name="av_contentText" format="string"/>
+        <attr name="av_contentTextColor" format="color"/>
+        <attr name="av_contentBackground" format="reference|color"/>
+
+        <attr name="av_borderWidth" format="dimension"/>
+        <attr name="av_borderColor" format="color"/>
+        <attr name="av_padding" format="dimension"/>
+        <attr name="av_paddingLeft" format="dimension"/>
+        <attr name="av_paddingTop" format="dimension"/>
+        <attr name="av_paddingRight" format="dimension"/>
+        <attr name="av_paddingBottom" format="dimension"/>
+        <attr name="av_radius" format="dimension"/>
+        <attr name="av_radius_topLeft" format="dimension"/>
+        <attr name="av_radius_topRight" format="dimension"/>
+        <attr name="av_radius_bottomLeft" format="dimension"/>
+        <attr name="av_radius_bottomRight" format="dimension"/>
+    </declare-styleable>
+
     <declare-styleable name="DuckListView">
         <attr name="swipeColor" format="color"/>
         <attr name="refreshEnabled" format="boolean"/>
@@ -47,29 +76,6 @@
         <attr name="card_radius" format="dimension"/>
         <attr name="card_borderWidth" format="dimension"/>
         <attr name="card_borderColor" format="color"/>
-    </declare-styleable>
-
-    <declare-styleable name="MyAttrView">
-        <attr name="iconDrawable"/>
-        <attr name="iconTint"/>
-        <attr name="iconWidthDp"/>
-        <attr name="iconHeightDp"/>
-        <attr name="contentSizeSp"/>
-        <attr name="contentText"/>
-        <attr name="contentColor"/>
-        <attr name="contentBackground"/>
-        <attr name="mBorderWidth"/>
-        <attr name="mBorderColor"/>
-        <attr name="mPadding"/>
-        <attr name="mPaddingLeft"/>
-        <attr name="mPaddingTop"/>
-        <attr name="mPaddingRight"/>
-        <attr name="mPaddingBottom"/>
-        <attr name="radius_topLeft"/>
-        <attr name="radius_topRight"/>
-        <attr name="radius_bottomLeft"/>
-        <attr name="radius_bottomRight"/>
-        <attr name="radius_all"/>
     </declare-styleable>
 
     <declare-styleable name="SectionHeader">

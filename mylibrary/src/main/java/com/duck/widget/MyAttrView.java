@@ -10,24 +10,22 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.LinearLayout;
 
 import com.duck.mylibrary.R;
 import com.duck.mylibrary.R2;
+import com.duck.widget.card.TextImageView;
 import com.github.florent37.shapeofview.shapes.RoundRectView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyAttrView extends BaseWidgetView {
-    @BindView(R2.id.myAttrRound) RoundRectView myAttrRound;
-    @BindView(R2.id.myAttrConstraint) LinearLayout myAttrConstraint;
-    @BindView(R2.id.myAttrIcon) AppCompatImageView myAttrIcon;
-    @BindView(R2.id.myAttrContent) AppCompatTextView myAttrContent;
+    @BindView(R2.id.mRoundRectView) RoundRectView mRoundRectView;
+    @BindView(R2.id.contentLayout) LinearLayout contentLayout;
+    @BindView(R2.id.mTextImageView) TextImageView mTextImageView;
 
     public @Dimension int radius_all; //外框圓角dp
     public @Dimension int radius_topLeft; //上左圓角dp
@@ -44,15 +42,19 @@ public class MyAttrView extends BaseWidgetView {
     public @Dimension int mPaddingTop;
     public @Dimension int mPaddingBottom;
 
-    public @DrawableRes int iconDrawable;
-    public @ColorInt int iconTint;
-    public @Dimension int iconWidth;
-    public @Dimension int iconHeight;
-
     public @Dimension float contentSizeSp;
     public String contentText;
-    public @ColorInt int contentColor;
+    public @ColorInt int contentTextColor;
     public Drawable contentBackground; //背景顏色
+
+    public Drawable icon_drawable_left;
+    public Drawable icon_drawable_top;
+    public Drawable icon_drawable_right;
+    public Drawable icon_drawable_bottom;
+    public @ColorInt int icon_drawable_tint;  //icon顏色
+    public @Dimension int icon_drawable_margin;
+    public @Dimension int icon_drawable_width; //icon寬
+    public @Dimension int icon_drawable_height; //icon高
 
     private boolean isLike;
 
@@ -70,29 +72,46 @@ public class MyAttrView extends BaseWidgetView {
 
         TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.MyAttrView, 0, 0);
 
-        radius_all = (int) a.getDimension(R.styleable.MyAttrView_radius_all, 0);
-        borderColor = a.getColor(R.styleable.MyAttrView_mBorderColor, -1);
-        borderWidth = a.getDimensionPixelSize(R.styleable.MyAttrView_mBorderWidth, -1);
+        //圓角
+        radius_all = (int) a.getDimension(R.styleable.MyAttrView_av_radius, 0);
+        radius_topLeft = (int) a.getDimension(R.styleable.MyAttrView_av_radius_topLeft, 0);
+        radius_topRight = (int) a.getDimension(R.styleable.MyAttrView_av_radius_topRight, 0);
+        radius_bottomLeft = (int) a.getDimension(R.styleable.MyAttrView_av_radius_bottomLeft, 0);
+        radius_bottomRight = (int) a.getDimension(R.styleable.MyAttrView_av_radius_bottomRight, 0);
 
-        contentBackground = a.getDrawable(R.styleable.MyAttrView_contentBackground);
+        //外框線
+        borderColor = a.getColor(R.styleable.MyAttrView_av_borderColor, -1);
+        borderWidth = a.getDimensionPixelSize(R.styleable.MyAttrView_av_borderWidth, -1);
 
-        mPadding = (int) a.getDimension(R.styleable.MyAttrView_mPadding, 0);
-        mPaddingLeft = (int) a.getDimension(R.styleable.MyAttrView_mPaddingLeft, 0);
-        mPaddingRight = (int) a.getDimension(R.styleable.MyAttrView_mPaddingRight, 0);
-        mPaddingTop = (int) a.getDimension(R.styleable.MyAttrView_mPaddingTop, 0);
-        mPaddingBottom = (int) a.getDimension(R.styleable.MyAttrView_mPaddingBottom, 0);
+        //背景
+        contentBackground = a.getDrawable(R.styleable.MyAttrView_av_contentBackground);
+        mPadding = (int) a.getDimension(R.styleable.MyAttrView_av_padding, 0);
+        mPaddingLeft = (int) a.getDimension(R.styleable.MyAttrView_av_paddingLeft, 0);
+        mPaddingRight = (int) a.getDimension(R.styleable.MyAttrView_av_paddingRight, 0);
+        mPaddingTop = (int) a.getDimension(R.styleable.MyAttrView_av_paddingTop, 0);
+        mPaddingBottom = (int) a.getDimension(R.styleable.MyAttrView_av_paddingBottom, 0);
 
-        iconDrawable = a.getResourceId(R.styleable.MyAttrView_iconDrawable, 0);
-        iconTint = a.getColor(R.styleable.MyAttrView_iconTint, ContextCompat.getColor(getContext(), R.color.transparent));
-        iconWidth = (int) a.getDimension(R.styleable.MyAttrView_iconWidthDp, LinearLayout.LayoutParams.WRAP_CONTENT);
-        iconHeight = (int) a.getDimension(R.styleable.MyAttrView_iconHeightDp, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        contentSizeSp = a.getDimension(R.styleable.MyAttrView_contentSizeSp,
+        //text
+        contentSizeSp = a.getDimension(R.styleable.MyAttrView_av_contentSizeSp,
                                        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14, getResources().getDisplayMetrics()));
-        contentText = a.getString(R.styleable.MyAttrView_contentText);
-        contentColor = a.getColor(R.styleable.MyAttrView_contentColor, ContextCompat.getColor(getContext(), R.color.black));
+        contentText = a.getString(R.styleable.MyAttrView_av_contentText);
+        contentTextColor = a.getColor(R.styleable.MyAttrView_av_contentTextColor, ContextCompat.getColor(getContext(), R.color.black));
 
-        myAttrIcon.setVisibility(iconDrawable == 0 ? GONE : VISIBLE);
+        //icon
+        icon_drawable_tint = a.getColor(R.styleable.MyAttrView_av_icon_drawable_tint, 0);
+        icon_drawable_width = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_mWidth,
+                                                   TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                                                                             16,
+                                                                             getResources().getDisplayMetrics()));
+        icon_drawable_height = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_mHeight,
+                                                    TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                                                                              16,
+                                                                              getResources().getDisplayMetrics()));
+        icon_drawable_left = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_left);
+        icon_drawable_top = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_top);
+        icon_drawable_right = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_right);
+        icon_drawable_bottom = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_bottom);
+        icon_drawable_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_margin, 0);
 
         a.recycle();
     }
@@ -103,49 +122,42 @@ public class MyAttrView extends BaseWidgetView {
 
     @Override protected void syncAttr() {
         if (radius_all != 0) {
-            myAttrRound.setTopLeftRadius(radius_all);
-            myAttrRound.setBottomLeftRadius(radius_all);
-            myAttrRound.setTopRightRadius(radius_all);
-            myAttrRound.setBottomRightRadius(radius_all);
+            mRoundRectView.setTopLeftRadius(radius_all);
+            mRoundRectView.setBottomLeftRadius(radius_all);
+            mRoundRectView.setTopRightRadius(radius_all);
+            mRoundRectView.setBottomRightRadius(radius_all);
         } else {
-            myAttrRound.setTopLeftRadius(radius_topLeft);
-            myAttrRound.setBottomLeftRadius(radius_bottomLeft);
-            myAttrRound.setTopRightRadius(radius_topRight);
-            myAttrRound.setBottomRightRadius(radius_bottomRight);
+            mRoundRectView.setTopLeftRadius(radius_topLeft);
+            mRoundRectView.setBottomLeftRadius(radius_bottomLeft);
+            mRoundRectView.setTopRightRadius(radius_topRight);
+            mRoundRectView.setBottomRightRadius(radius_bottomRight);
         }
 
-        myAttrRound.setBorderColor(borderColor);
-        myAttrRound.setBorderWidthPx((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                                                                     borderWidth,
-                                                                     getResources().getDisplayMetrics()));
+        mRoundRectView.setBorderColor(borderColor);
+        mRoundRectView.setBorderWidthPx((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+                                                                        borderWidth,
+                                                                        getResources().getDisplayMetrics()));
 
-        myAttrConstraint.setBackground(contentBackground);
+        contentLayout.setBackground(contentBackground);
         if (mPadding != 0) {
-            myAttrConstraint.setPadding(mPadding, mPadding, mPadding, mPadding);
+            contentLayout.setPadding(mPadding, mPadding, mPadding, mPadding);
         } else {
-            myAttrConstraint.setPadding(mPaddingLeft, mPaddingTop, mPaddingRight, mPaddingBottom);
+            contentLayout.setPadding(mPaddingLeft, mPaddingTop, mPaddingRight, mPaddingBottom);
         }
 
-        myAttrIcon.setImageResource(iconDrawable);
-        myAttrIcon.setColorFilter(iconTint);
+        mTextImageView.setTextSize(TypedValue.COMPLEX_UNIT_PX, contentSizeSp);
+        mTextImageView.setText(contentText);
+        mTextImageView.setTextColor(contentTextColor);
 
-        myAttrContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, contentSizeSp);
-        myAttrContent.setText(contentText);
-        myAttrContent.setTextColor(contentColor);
+        mTextImageView.setAllHeight(icon_drawable_height);
+        mTextImageView.setAllWidth(icon_drawable_width);
+        mTextImageView.setCompoundDrawables(icon_drawable_left, icon_drawable_top, icon_drawable_right, icon_drawable_bottom);
+        mTextImageView.setCompoundDrawablePadding(icon_drawable_margin);
 
-        if (iconWidth > 0) {
-            myAttrIcon.getLayoutParams().width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-                                                                                 iconWidth,
-                                                                                 getResources().getDisplayMetrics());
+        if (icon_drawable_tint != 0) {
+            mTextImageView.setDrawableTint(icon_drawable_tint);
         }
-
-        if (iconHeight > 0) {
-            myAttrIcon.getLayoutParams().height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-                                                                                  iconHeight,
-                                                                                  getResources().getDisplayMetrics());
-        }
-
-        myAttrIcon.requestLayout();
+        mTextImageView.reloadAttr();
     }
 
     /**
@@ -171,23 +183,7 @@ public class MyAttrView extends BaseWidgetView {
      * 設置文字color
      */
     public void setTextColor(@ColorRes int colorRes) {
-        this.contentColor = getResources().getColor(colorRes);
-        syncAttr();
-    }
-
-    /**
-     * 設置icon Res
-     */
-    public void setIconDrawableRes(@DrawableRes int iconDrawable) {
-        this.iconDrawable = iconDrawable;
-        syncAttr();
-    }
-
-    /**
-     * 設置icon顏色
-     */
-    public void setDrawableColor(@ColorRes int colorRes) {
-        this.iconTint = getResources().getColor(colorRes);
+        this.contentTextColor = getResources().getColor(colorRes);
         syncAttr();
     }
 
@@ -195,8 +191,8 @@ public class MyAttrView extends BaseWidgetView {
      * 設置icon、text顏色
      */
     public void setAllColor(@ColorRes int colorRes) {
-        this.contentColor = getResources().getColor(colorRes);
-        this.iconTint = getResources().getColor(colorRes);
+        this.contentTextColor = getResources().getColor(colorRes);
+        this.icon_drawable_tint = getResources().getColor(colorRes);
         syncAttr();
     }
 
@@ -205,6 +201,46 @@ public class MyAttrView extends BaseWidgetView {
      */
     public void setBorderColor(@ColorRes int borderColor) {
         this.borderColor = ContextCompat.getColor(getContext(), borderColor);
+        syncAttr();
+    }
+
+    /**
+     * 設置 左icon
+     */
+    public void setIconDrawableLeft(@DrawableRes int redId) {
+        this.icon_drawable_left = ContextCompat.getDrawable(getContext(), redId);
+        syncAttr();
+    }
+
+    /**
+     * 設置 上icon
+     */
+    public void setIconDrawableTop(@DrawableRes int redId) {
+        this.icon_drawable_top = ContextCompat.getDrawable(getContext(), redId);
+        syncAttr();
+    }
+
+    /**
+     * 設置 右icon
+     */
+    public void setIconDrawableRight(@DrawableRes int redId) {
+        this.icon_drawable_right = ContextCompat.getDrawable(getContext(), redId);
+        syncAttr();
+    }
+
+    /**
+     * 設置 下icon
+     */
+    public void setIconDrawableBottom(@DrawableRes int redId) {
+        this.icon_drawable_bottom = ContextCompat.getDrawable(getContext(), redId);
+        syncAttr();
+    }
+
+    /**
+     * 設置 icon顏色，目前僅支援上下左右全部變色
+     */
+    public void setIconDrawableTint(@ColorRes int redId) {
+        this.icon_drawable_tint = getResources().getColor(redId);
         syncAttr();
     }
 

@@ -197,4 +197,8 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
         setDrawablesSize();
     }
 
+    public void reloadAttr() {
+        setDrawablesSize();
+    }
+
 }
