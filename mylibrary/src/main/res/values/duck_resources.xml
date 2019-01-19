@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="rv_c000000">#000000</color>
+
+    <!--共用attr-->
+    <attr name="iconDrawable" format="reference|color"/>
+    <attr name="iconTint" format="color"/>
+    <attr name="iconWidthDp" format="dimension"/>
+    <attr name="iconHeightDp" format="dimension"/>
+    <attr name="mBorderWidth" format="dimension"/>
+    <attr name="mBorderColor" format="color"/>
+    <attr name="mPadding" format="dimension"/>
+    <attr name="mPaddingLeft" format="dimension"/>
+    <attr name="mPaddingTop" format="dimension"/>
+    <attr name="mPaddingRight" format="dimension"/>
+    <attr name="mPaddingBottom" format="dimension"/>
+    <attr name="radius_topLeft" format="dimension"/>
+    <attr name="radius_topRight" format="dimension"/>
+    <attr name="radius_bottomLeft" format="dimension"/>
+    <attr name="radius_bottomRight" format="dimension"/>
+    <attr name="radius_all" format="dimension"/>
+    <attr name="contentSizeSp" format="dimension"/>
+    <attr name="contentText" format="string"/>
+    <attr name="contentColor" format="color"/>
+    <attr name="contentBackground" format="reference|color"/>
+
+    <declare-styleable name="DuckListView">
+        <attr name="swipeColor" format="color"/>
+        <attr name="refreshEnabled" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CardTextView">
+        <attr name="card_drawable" format="reference|color"/>
+        <attr name="card_drawable_tint" format="color"/>
+        <attr name="card_drawable_width" format="dimension"/>
+        <attr name="card_drawable_height" format="dimension"/>
+        <attr name="card_drawable_margin" format="dimension"/>
+        <attr name="card_contentSizeSp" format="dimension"/>
+        <attr name="card_contentText" format="string"/>
+        <attr name="card_content_textColor" format="color"/>
+        <attr name="card_bgColor" format="reference|color"/>
+        <attr name="card_padding" format="dimension"/>
+        <attr name="card_paddingLeft" format="dimension"/>
+        <attr name="card_paddingTop" format="dimension"/>
+        <attr name="card_paddingRight" format="dimension"/>
+        <attr name="card_paddingBottom" format="dimension"/>
+        <attr name="card_radius" format="dimension"/>
+        <attr name="card_borderWidth" format="dimension"/>
+        <attr name="card_borderColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyAttrView">
+        <attr name="iconDrawable"/>
+        <attr name="iconTint"/>
+        <attr name="iconWidthDp"/>
+        <attr name="iconHeightDp"/>
+        <attr name="contentSizeSp"/>
+        <attr name="contentText"/>
+        <attr name="contentColor"/>
+        <attr name="contentBackground"/>
+        <attr name="mBorderWidth"/>
+        <attr name="mBorderColor"/>
+        <attr name="mPadding"/>
+        <attr name="mPaddingLeft"/>
+        <attr name="mPaddingTop"/>
+        <attr name="mPaddingRight"/>
+        <attr name="mPaddingBottom"/>
+        <attr name="radius_topLeft"/>
+        <attr name="radius_topRight"/>
+        <attr name="radius_bottomLeft"/>
+        <attr name="radius_bottomRight"/>
+        <attr name="radius_all"/>
+    </declare-styleable>
+
+    <declare-styleable name="SectionHeader">
+        <attr name="sectionDrawable" format="reference"/>
+        <attr name="sectionDrawableTint"/>
+        <attr name="sectionTitleText" format="string"/>
+        <attr name="sectionTitleColor" format="color"/>
+        <attr name="sectionRightText" format="string"/>
+        <attr name="sectionRightTextColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="EditAreaView">
+        <attr name="iconDrawable"/>
+        <attr name="iconTint"/>
+        <attr name="iconWidthDp"/>
+        <attr name="iconVisibility" format="boolean"/>
+        <attr name="iconBackground" format="color"/>
+        <attr name="editText" format="string"/>
+        <attr name="editTextColor" format="color"/>
+        <attr name="editHint" format="string"/>
+        <attr name="editHintColor" format="color"/>
+        <attr name="mBorderWidth"/>
+        <attr name="mBorderColor"/>
+        <attr name="submitShow" format="boolean"/>
+        <attr name="submitText" format="string"/>
+        <attr name="submitTextColor" format="color"/>
+        <attr name="submitTextBackground" format="color"/>
+        <attr name="edit_type"/>
+        <attr name="drawableLeftMargin" format="dimension"/>
+        <attr name="contentBackground"/>
+    </declare-styleable>
+
+    <declare-styleable name="TextImageView">
+        <attr name="drawableLeftWidth" format="dimension"/>
+        <attr name="drawableLeftHeight" format="dimension"/>
+        <attr name="drawableTopWidth" format="dimension"/>
+        <attr name="drawableTopHeight" format="dimension"/>
+        <attr name="drawableRightWidth" format="dimension"/>
+        <attr name="drawableRightHeight" format="dimension"/>
+        <attr name="drawableBottomWidth" format="dimension"/>
+        <attr name="drawableBottomHeight" format="dimension"/>
+        <attr name="drawableTint" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="HeaderView">
+        <attr name="headerText" format="string"/>
+        <attr name="headerTextColor" format="color"/>
+        <attr name="headerDrawable" format="reference|color"/>
+        <attr name="headerDrawableTint" format="color"/>
+        <attr name="headerBackground" format="reference|color"/>
+        <attr name="headerRightIcon" format="reference|color"/>
+        <attr name="headerRightIconTint" format="color"/>
+        <attr name="showInsideStatusBar" format="boolean"/>
+    </declare-styleable>
+
+</resources>

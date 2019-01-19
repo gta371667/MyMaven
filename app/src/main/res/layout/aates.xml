@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:ignore="MissingDefaultResource"
+    >
+
+    <com.duck.widget.card.TextImageView
+        android:id="@+id/btnUserSetting"
+        style="@style/TextImageView_drawer_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2dp"
+        android:layout_weight="1"
+        app:drawableTopHeight="100dp"
+        app:drawableTopWidth="100dp"
+        android:textColor="@color/colorAccent"
+        android:background="@color/transparent"
+        android:drawableTop="@mipmap/ic_launcher"
+        android:gravity="center"
+        android:text="123456"
+        />
+
+</android.support.design.card.MaterialCardView>

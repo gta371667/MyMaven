@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.florent37.shapeofview.shapes.RoundRectView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                       xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                       android:id="@+id/myAttrRound"
+                                                       android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       android:layout_gravity="center"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/myAttrConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/myAttrIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/ic_wechat"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/myAttrContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收藏"
+            android:textSize="12sp"
+            app:backgroundTint="@color/transparent"
+            />
+    </LinearLayout>
+
+</com.github.florent37.shapeofview.shapes.RoundRectView>

@@ -1,21 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity"
     >
 
-    <TextView
+    <com.duck.widget.card.CardTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:card_borderColor="@color/red_theme"
+        app:card_borderWidth="0dp"
+        app:card_contentText="123456"
+        app:card_content_textColor="@color/red_theme"
+        app:card_drawable="@drawable/ic_arrow_left"
+        app:card_drawable_height="12dp"
+        app:card_drawable_tint="@color/red_theme"
+        app:card_drawable_width="12dp"
+        app:card_padding="10dp"
+        app:card_radius="30dp"
+        />
+
+    <com.duck.widget.MyAttrView
+        android:id="@+id/maQuoteChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:contentColor="@color/red_theme"
+        app:contentText="-0.0334"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:mBorderColor="@color/red_theme"
+        app:mBorderWidth="1dp"
+        app:mPadding="5dp"
+        app:radius_all="5dp"
+        app:shape_roundRect_bottomLeftRadius="3dp"
+        app:shape_roundRect_bottomRightRadius="3dp"
+        app:shape_roundRect_topLeftRadius="3dp"
+        app:shape_roundRect_topRightRadius="3dp"
         />
 
-</android.support.constraint.ConstraintLayout>
+    <com.duck.widget.DuckListView
+        android:id="@+id/mDuckListViewAAA"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>
