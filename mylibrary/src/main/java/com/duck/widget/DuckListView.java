@@ -23,18 +23,14 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.loadmore.LoadMoreView;
 import com.duck.mylibrary.R;
-import com.duck.mylibrary.R2;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class DuckListView<T> extends BaseWidgetView {
-    @BindView(R2.id.mRecyclerView) RecyclerView mRecyclerView;
-    @BindView(R2.id.mSwipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
+    RecyclerView mRecyclerView;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     @IntDef({Loading, NoData, Error})
     @Retention(RetentionPolicy.SOURCE)
@@ -79,7 +75,9 @@ public class DuckListView<T> extends BaseWidgetView {
      * 初始化View相關
      */
     @Override protected void init() {
-        ButterKnife.bind(this);
+        //        ButterKnife.bind(this);
+        mRecyclerView = findViewById(R.id.mRecyclerView);
+        mSwipeRefreshLayout = findViewById(R.id.mSwipeRefreshLayout);
 
         loadingView = initEmptyView(getContext(), R.layout.rv_load_view, mSwipeRefreshLayout);
         noDataView = initEmptyView(getContext(), R.layout.rv_nodata_view, mSwipeRefreshLayout);

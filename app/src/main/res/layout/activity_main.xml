@@ -25,21 +25,6 @@
         android:src="@drawable/xview_wechat"
         />
 
-    <com.duck.widget.card.CardTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:card_borderColor="@color/red_theme"
-        app:card_borderWidth="0dp"
-        app:card_contentText="123456"
-        app:card_content_textColor="@color/red_theme"
-        app:card_drawable="@drawable/ic_arrow_left"
-        app:card_drawable_height="12dp"
-        app:card_drawable_tint="@color/red_theme"
-        app:card_drawable_width="12dp"
-        app:card_padding="10dp"
-        app:card_radius="30dp"
-        />
-
     <com.duck.widget.MyAttrView
         android:id="@+id/maQuoteChange"
         android:layout_width="wrap_content"

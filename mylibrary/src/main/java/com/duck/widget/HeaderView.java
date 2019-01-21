@@ -9,7 +9,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -18,20 +17,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.duck.mylibrary.R;
-import com.duck.mylibrary.R2;
 import com.duck.tools.ToolsPhonePixels;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class HeaderView extends BaseWidgetView {
-    @BindView(R2.id.tvHeaderTitle) AppCompatTextView tvHeaderTitle;
-    @BindView(R2.id.menuImg) ImageView menuImg;
-    @BindView(R2.id.headerLayout) ConstraintLayout headerLayout;
-    @BindView(R2.id.barViewV) View barView;
-    @BindView(R2.id.rightImg) ImageView rightImg;
+    TextView tvHeaderTitle;
+    ImageView menuImg;
+    ConstraintLayout headerLayout;
+    View barView;
+    ImageView rightImg;
 
     private String titleText;
     public @ColorInt int titleTextColor;
@@ -103,7 +99,11 @@ public class HeaderView extends BaseWidgetView {
     }
 
     @Override protected void init() {
-        ButterKnife.bind(this);
+        tvHeaderTitle = findViewById(R.id.tvHeaderTitle);
+        menuImg = findViewById(R.id.menuImg);
+        headerLayout = findViewById(R.id.headerLayout);
+        barView = findViewById(R.id.barViewV);
+        rightImg = findViewById(R.id.rightImg);
 
         menuImg.setOnClickListener(new OnClickListener() {
             @Override public void onClick(View v) {

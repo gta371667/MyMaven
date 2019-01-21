@@ -15,17 +15,13 @@ import android.util.TypedValue;
 import android.widget.LinearLayout;
 
 import com.duck.mylibrary.R;
-import com.duck.mylibrary.R2;
 import com.duck.widget.card.TextImageView;
 import com.github.florent37.shapeofview.shapes.RoundRectView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MyAttrView extends BaseWidgetView {
-    @BindView(R2.id.mRoundRectView) RoundRectView mRoundRectView;
-    @BindView(R2.id.contentLayout) LinearLayout contentLayout;
-    @BindView(R2.id.mTextImageView) TextImageView mTextImageView;
+    RoundRectView mRoundRectView;
+    LinearLayout contentLayout;
+    TextImageView mTextImageView;
 
     public @Dimension int radius_all; //外框圓角dp
     public @Dimension int radius_topLeft; //上左圓角dp
@@ -115,7 +111,9 @@ public class MyAttrView extends BaseWidgetView {
     }
 
     @Override protected void init() {
-        ButterKnife.bind(this);
+        mRoundRectView = findViewById(R.id.mRoundRectView);
+        contentLayout = findViewById(R.id.contentLayout);
+        mTextImageView = findViewById(R.id.mTextImageView);
     }
 
     @Override protected void syncAttr() {
