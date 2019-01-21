@@ -262,7 +262,7 @@ public class DuckListView<T> extends BaseWidgetView {
     }
 
     /**
-     * 加載數據失敗
+     * 加載數據失敗fgfh
      * 有setOnLoadMoreListener才有效
      *
      * @see #setOnLoadMoreListener(BaseQuickAdapter.RequestLoadMoreListener)
