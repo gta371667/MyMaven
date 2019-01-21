@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin:'maven'
 
 group = 'com.gta371667.Xview'
 version = '000.1'
