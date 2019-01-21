@@ -23,24 +23,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        for (int i = 0; i <= 100; i++) {
-            strings.add(String.valueOf(i));
-        }
-
-        mDuckListView.setAdapter(new TestAdapter(strings));
-        mDuckListView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        mDuckListView.addDefaultItemDecoration();
-
-        mDuckListView.setAdapterOnItemChildClickListener((adapter, view, position) -> {
-
-            //            if (position + 1 < strings.size()) {
-            //                mDuckListView.smoothScrollToPosition(position + 1);
-            //            } else {
-            mDuckListView.smoothScrollToPosition(position);
-            //            }
-        });
-
-        mDuckListView.setLinHelper();
+//        for (int i = 0; i <= 100; i++) {
+//            strings.add(String.valueOf(i));
+//        }
+//
+//        mDuckListView.setAdapter(new TestAdapter(strings));
+//        mDuckListView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+//        mDuckListView.addDefaultItemDecoration();
+//
+//        mDuckListView.setAdapterOnItemChildClickListener((adapter, view, position) -> {
+//
+//            //            if (position + 1 < strings.size()) {
+//            //                mDuckListView.smoothScrollToPosition(position + 1);
+//            //            } else {
+//            mDuckListView.smoothScrollToPosition(position);
+//            //            }
+//        });
+//
+//        mDuckListView.setLinHelper();
 
     }
 }
