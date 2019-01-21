@@ -111,10 +111,10 @@ public class CardTextView extends BaseWidgetView {
         mTextImageView.setText(contentText);
         mTextImageView.setTextColor(contentColor);
         mTextImageView.setDrawableTint(iconTint);
-        mTextImageView.setCompoundDrawables(getDrawable(R.drawable.ic_wechat),
-                                            getDrawable(R.drawable.ic_wechat),
-                                            getDrawable(R.drawable.ic_wechat),
-                                            getDrawable(R.drawable.ic_wechat));
+        mTextImageView.setCompoundDrawables(getDrawable(R.drawable.xview_wechat),
+                                            getDrawable(R.drawable.xview_wechat),
+                                            getDrawable(R.drawable.xview_wechat),
+                                            getDrawable(R.drawable.xview_wechat));
 
         if (iconWidth != icon_default_width) {
             mTextImageView.setAllWidth(iconWidth);

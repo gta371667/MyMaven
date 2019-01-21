@@ -53,6 +53,31 @@
         <attr name="av_radius_bottomRight" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="HeaderView">
+        <attr name="hd_headerText" format="string"/>
+        <attr name="hd_headerTextColor" format="color"/>
+        <attr name="hd_header_gravity" format="enum">
+            <enum name="left" value="1"/>
+            <enum name="leftCenter" value="2"/>
+            <enum name="center" value="3"/>
+            <enum name="right" value="4"/>
+            <enum name="rightCenter" value="5"/>
+            <enum name="top" value="6"/>
+            <enum name="topCenter" value="7"/>
+            <enum name="bottom" value="8"/>
+            <enum name="bottomCenter" value="9"/>
+        </attr>
+        <attr name="hd_headerDrawable" format="reference|color"/>
+        <attr name="hd_headerDrawableTint" format="color"/>
+        <attr name="hd_headerBackground" format="reference|color"/>
+        <attr name="hd_headerRightIcon" format="reference|color"/>
+        <attr name="hd_headerRightIconTint" format="color"/>
+        <attr name="hd_showInsideStatusBar" format="boolean"/>
+        <attr name="hd_icon_drawable_mWidth" format="dimension"/>
+        <attr name="hd_icon_drawable_mHeight" format="dimension"/>
+        <attr name="hd_icon_drawable_mPadding" format="dimension"/>
+    </declare-styleable>
+
     <declare-styleable name="DuckListView">
         <attr name="swipeColor" format="color"/>
         <attr name="refreshEnabled" format="boolean"/>
@@ -118,17 +143,6 @@
         <attr name="drawableBottomWidth" format="dimension"/>
         <attr name="drawableBottomHeight" format="dimension"/>
         <attr name="drawableTint" format="color"/>
-    </declare-styleable>
-
-    <declare-styleable name="HeaderView">
-        <attr name="headerText" format="string"/>
-        <attr name="headerTextColor" format="color"/>
-        <attr name="headerDrawable" format="reference|color"/>
-        <attr name="headerDrawableTint" format="color"/>
-        <attr name="headerBackground" format="reference|color"/>
-        <attr name="headerRightIcon" format="reference|color"/>
-        <attr name="headerRightIconTint" format="color"/>
-        <attr name="showInsideStatusBar" format="boolean"/>
     </declare-styleable>
 
 </resources>

@@ -68,8 +68,6 @@ public class MyAttrView extends BaseWidgetView {
     }
 
     @Override protected void initAttr(AttributeSet attrs) {
-        ButterKnife.bind(this);
-
         TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.MyAttrView, 0, 0);
 
         //圓角
@@ -117,7 +115,7 @@ public class MyAttrView extends BaseWidgetView {
     }
 
     @Override protected void init() {
-
+        ButterKnife.bind(this);
     }
 
     @Override protected void syncAttr() {
