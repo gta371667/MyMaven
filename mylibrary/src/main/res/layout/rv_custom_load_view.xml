@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
-             android:layout_height="@dimen/dp_40"
+             android:layout_height="40dp"
              xmlns:app="http://schemas.android.com/apk/res-auto"
              android:layout_marginBottom="3dp"
     >
@@ -19,17 +19,17 @@
             style="?android:attr/progressBarStyleSmallInverse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/dp_4"
+            android:layout_marginRight="5dp"
             />
 
         <TextView
             android:id="@+id/loading_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginLeft="5dp"
             android:text="@string/str_rv_loading"
             android:textColor="@color/swipe_loading_default_color"
-            android:textSize="@dimen/sp_14"
+            android:textSize="14sp"
             />
     </LinearLayout>
 
