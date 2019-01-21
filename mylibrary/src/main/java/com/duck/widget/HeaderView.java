@@ -105,15 +105,19 @@ public class HeaderView extends BaseWidgetView {
     @Override protected void init() {
         ButterKnife.bind(this);
 
-        menuImg.setOnClickListener(v -> {
-            if (menuPressListener != null) {
-                menuPressListener.onClick(v);
+        menuImg.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View v) {
+                if (menuPressListener != null) {
+                    menuPressListener.onClick(v);
+                }
             }
         });
 
-        rightImg.setOnClickListener(v -> {
-            if (rightImgListener != null) {
-                rightImgListener.onClick(v);
+        rightImg.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View v) {
+                if (rightImgListener != null) {
+                    rightImgListener.onClick(v);
+                }
             }
         });
 

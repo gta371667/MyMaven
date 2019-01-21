@@ -33,12 +33,10 @@
         <attr name="av_icon_drawable_mWidth" format="dimension"/>
         <attr name="av_icon_drawable_mHeight" format="dimension"/>
         <attr name="av_icon_drawable_tint" format="color"/>
-
         <attr name="av_contentSizeSp" format="dimension"/>
         <attr name="av_contentText" format="string"/>
         <attr name="av_contentTextColor" format="color"/>
         <attr name="av_contentBackground" format="reference|color"/>
-
         <attr name="av_borderWidth" format="dimension"/>
         <attr name="av_borderColor" format="color"/>
         <attr name="av_padding" format="dimension"/>

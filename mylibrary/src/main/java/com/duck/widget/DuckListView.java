@@ -86,7 +86,11 @@ public class DuckListView<T> extends BaseWidgetView {
         errorView = initEmptyView(getContext(), R.layout.rv_error_view, mSwipeRefreshLayout);
 
         //下拉刷新
-        mSwipeRefreshLayout.setOnRefreshListener(this::refreshAll);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override public void onRefresh() {
+                refreshAll();
+            }
+        });
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
@@ -422,10 +426,10 @@ public class DuckListView<T> extends BaseWidgetView {
      */
     public void setPagerSnapHelper() {
         if (getRecyclerView().getLayoutManager().canScrollHorizontally()) {
-//            new PagerSnapHelper().attachToRecyclerView(getRecyclerView());
+            //            new PagerSnapHelper().attachToRecyclerView(getRecyclerView());
 
             PagerSnapHelper p = new PagerSnapHelper();
-//            p.findTargetSnapPosition(getRecyclerView().getLayoutManager(), 100, 0);
+            //            p.findTargetSnapPosition(getRecyclerView().getLayoutManager(), 100, 0);
 
             p.attachToRecyclerView(getRecyclerView());
         }
