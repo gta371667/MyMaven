@@ -1,4 +1,4 @@
-# Xview
+# improt
 
 ```gradle
 allprojects {
@@ -59,6 +59,39 @@ dependencies {
 | av_radius_topLeft | 左上圓角 | dp |
 | av_radius_topRight | 右上圓角 | dp |
 
+### HeaderView用法
+```xml
+  <com.duck.widget.HeaderView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:hd_headerBackground="@color/stroke_default_color"
+      app:hd_headerDrawable="@mipmap/ic_launcher"
+      app:hd_headerDrawableTint="@color/colorAccent"
+      app:hd_headerRightIcon="@drawable/xview_menu"
+      app:hd_headerRightIconTint="@color/colorAccent"
+      app:hd_headerText="@string/app_name"
+      app:hd_headerTextColor="@color/colorPrimary"
+      app:hd_header_gravity="leftCenter"
+      app:hd_icon_drawable_mHeight="40dp"
+      app:hd_icon_drawable_mWidth="40dp"
+      app:hd_icon_drawable_mPadding="10dp"
+      app:hd_showInsideStatusBar="true"
+      />
+```
+| xml屬性 | 說明 | 單位 |
+| --- | --- | --- |
+| hd_headerBackground | 背景色 | #ffffff、R.color.red、@drawable/bg_drawer |
+| hd_headerDrawable | 左icon | #ffffff、@color/red、@drawable/bg_drawer |
+| hd_headerDrawableTint | 左icon渲染色 | #ffffff、@color/red、@drawable/bg_drawer |
+| hd_headerRightIcon | 右icon | #ffffff、@color/red、@drawable/bg_drawer |
+| hd_headerRightIconTint | 右icon渲染色 | #ffffff、@color/red、@drawable/bg_drawer |
+| hd_headerText | 文字 | String、StringRes |
+| hd_headerTextColor | 文字 | #ffffff、@color/red |
+| hd_header_gravity | 文字gravity | enum |
+| hd_icon_drawable_mHeight | icon高度 | dp (預設40dp) |
+| hd_icon_drawable_mWidth | icon寬度 | dp (預設40dp) |
+| hd_icon_drawable_mPadding | iconPadding | dp (預設5dp) |
+| hd_showInsideStatusBar | 是否根據狀態列高度marginTop | boolean |
 
 | 1 | 2 |
 | --- | --- |
@@ -84,32 +117,3 @@ list
 1. 2
 1. 3
 1. 4
-
-
-
-```gradle
-allprojects {
-    repositories {
-        google()
-        jcenter()
-//        maven { url 'E:\\maven' }
-        maven { url 'https://raw.github.com/gta371667/duck-maven/master/' }
-        maven { url 'https://jitpack.io' }
-        mavenCentral()
-    }
-
-    // jCenter; 加上這些為了防止編碼失敗
-    tasks.withType(Javadoc) {
-        options {
-            encoding "UTF-8"
-            charSet 'UTF-8'
-            links "http://docs.oracle.com/javase/7/docs/api"
-        }
-    }
-}
-
-dependencies {
-       implementation 'org.duck:xview:1.0.1'
- }
-
-```
