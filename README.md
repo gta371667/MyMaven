@@ -8,7 +8,7 @@ allprojects {
 }
 
 dependencies {
-	implementation 'com.github.gta371667:Xview:Tag'
+	implementation 'com.github.gta371667:Xview: {version}'
 }
 
 ```
