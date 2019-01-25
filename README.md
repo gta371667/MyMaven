@@ -121,4 +121,4 @@ dependencies {
 ```
 | xml屬性 | 說明 | 單位 |
 | --- | --- | --- |
-| nestedScrollingEnabled | 是否把滾定交給外層 | boolean |
+| nestedScrollingEnabled | 是否把滾動交給外層 | boolean |
