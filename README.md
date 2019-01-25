@@ -12,11 +12,6 @@ dependencies {
 }
 ```
 
-| 1 | 2 |
-| --- | --- |
-| 11 | 22 |
-| 33 | 44 |
-
 ## 1.MyAttrView  2.HeaderView  3.DuckListView  4.DuckRecyclerView
 
 ### MyAttrView用法
@@ -43,6 +38,7 @@ dependencies {
         />
 ```
 | xml屬性 | 說明 | 單位 |
+| --- | --- | --- |
 | av_borderColor | 外框線條顏色 | #ffffff、R.color.red |
 | av_borderWidth | 外框大小 | dp |
 | av_contentBackground | 內圈顏色 | #ffffff、@color/red、@drawable/bg_drawer |
@@ -62,6 +58,13 @@ dependencies {
 | av_radius_bottomRight | 右下圓角 | dp |
 | av_radius_topLeft | 左上圓角 | dp |
 | av_radius_topRight | 右上圓角 | dp |
+
+
+| 1 | 2 |
+| --- | --- |
+| 11 | 22 |
+| 33 | 44 |
+
 
 # 1
 ## 2
