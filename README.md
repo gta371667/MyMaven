@@ -2,14 +2,14 @@
 
 ```gradle
 allprojects {
-		repositories {
-			maven { url 'https://jitpack.io' }
-		}
+	repositories {
+		maven { url 'https://jitpack.io' }
 	}
+}
 
 dependencies {
-	        implementation 'com.github.gta371667:Xview:Tag'
-	}
+	implementation 'com.github.gta371667:Xview:Tag'
+}
 
 ```
 
