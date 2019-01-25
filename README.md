@@ -105,6 +105,7 @@ dependencies {
 	/>
 ```
 | xml屬性 | 說明 | 單位 |
+| --- | --- | --- |
 | swipeColor | SwipeRefreshLayout顏色 | #ffffff、@color/red |
 | refreshEnabled | 是否可以下拉刷新 | boolean |
 
@@ -119,4 +120,5 @@ dependencies {
 	/>
 ```
 | xml屬性 | 說明 | 單位 |
+| --- | --- | --- |
 | nestedScrollingEnabled | 是否把滾定交給外層 | boolean |
