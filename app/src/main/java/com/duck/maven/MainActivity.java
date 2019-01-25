@@ -1,13 +1,16 @@
 package com.duck.maven;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
 
 import com.duck.maven.adpter.TestAdapter;
-import com.duck.widget.DuckListView;
+import com.duck.widget.DuckRecyclerView;
+import com.duck.widget.MyAttrView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.mDuckListViewAAA) DuckListView<String> mDuckListView;
+    @BindView(R.id.contentView) LinearLayout contentView;
+    @BindView(R.id.mDuckRecyclerView1) DuckRecyclerView mDuckRecyclerView1;
+    @BindView(R.id.mDuckRecyclerView2) DuckRecyclerView mDuckRecyclerView2;
 
     List<String> strings = new ArrayList<>();
 
@@ -29,19 +34,22 @@ public class MainActivity extends AppCompatActivity {
             strings.add(String.valueOf(i));
         }
 
-        mDuckListView.setAdapter(new TestAdapter(strings));
-        mDuckListView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        mDuckListView.addDefaultItemDecoration();
+        TestAdapter testAdapter = new TestAdapter(strings);
+        mDuckRecyclerView1.setAdapter(testAdapter);
+        mDuckRecyclerView1.clearData();
+        mDuckRecyclerView1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mDuckRecyclerView1.setLoadingView(R.layout.adpter_string);
+        mDuckRecyclerView1.showEmptyView(DuckRecyclerView.Loading);
 
-        mDuckListView.setAdapterOnItemChildClickListener((adapter, view, position) -> {
+        mDuckRecyclerView2.setAdapter(new TestAdapter(strings));
+        mDuckRecyclerView2.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-            //            if (position + 1 < strings.size()) {
-            //                mDuckListView.smoothScrollToPosition(position + 1);
-            //            } else {
-            mDuckListView.smoothScrollToPosition(position);
-            //            }
-        });
 
-        mDuckListView.setLinHelper();
+        MyAttrView myAttrView = new MyAttrView(this);
+        myAttrView.setIconDrawableLeft(R.drawable.ic_arrow_left);
+        myAttrView.setText("asdasd");
+        myAttrView.setIconDrawableTint(R.color.red);
+
+        contentView.addView(myAttrView);
     }
 }

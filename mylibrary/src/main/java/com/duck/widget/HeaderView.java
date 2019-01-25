@@ -55,6 +55,7 @@ public class HeaderView extends BaseWidgetView {
 
     public HeaderView(@NonNull Context context) {
         super(context);
+       init();
     }
 
     public HeaderView(@NonNull Context context, @Nullable AttributeSet attrs) {

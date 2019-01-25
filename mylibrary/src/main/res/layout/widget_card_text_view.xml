@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
                                               xmlns:app="http://schemas.android.com/apk/res-auto"
+                                              xmlns:tools="http://schemas.android.com/tools"
                                               android:id="@+id/duck_materialCardView"
                                               android:layout_width="match_parent"
                                               android:layout_height="match_parent"
+                                              app:strokeColor="@color/red"
                                               app:strokeWidth="10dp"
-                                              app:strokeColor="@color/red_theme"
     >
 
     <LinearLayout
@@ -13,10 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:padding="10dp"
+        android:background="@color/red"
         android:gravity="center"
-        android:background="@color/red_theme"
         android:orientation="horizontal"
+        android:padding="10dp"
         >
 
         <com.duck.widget.card.TextImageView
@@ -29,8 +30,8 @@
             android:drawableRight="@drawable/xview_wechat"
             android:drawableBottom="@drawable/xview_wechat"
             android:drawablePadding="3dp"
-            android:text="123456"
-            android:textColor="@color/colorAccent"
+            android:textColor="#ffffff"
+            tools:text="123456"
             />
 
     </LinearLayout>

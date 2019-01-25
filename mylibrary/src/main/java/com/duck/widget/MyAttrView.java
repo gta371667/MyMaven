@@ -59,9 +59,9 @@ public class MyAttrView extends BaseWidgetView {
 
     private boolean isSelect;
 
-    public MyAttrView(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        initAttr(attrs);
+    public MyAttrView(@NonNull Context context) {
+        super(context, null);
+        init();
     }
 
     @Override protected int getWidgetLayout() {
@@ -69,7 +69,7 @@ public class MyAttrView extends BaseWidgetView {
     }
 
     @Override protected void initAttr(AttributeSet attrs) {
-        TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.MyAttrView, 0, 0);
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.MyAttrView, 0, 0);
 
         //圓角
         radius_all = (int) a.getDimension(R.styleable.MyAttrView_av_radius, 0);

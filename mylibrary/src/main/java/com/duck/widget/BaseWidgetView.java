@@ -1,7 +1,6 @@
 package com.duck.widget;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +23,16 @@ public abstract class BaseWidgetView extends FrameLayout {
         initAttr(attrs);
     }
 
+    public BaseWidgetView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        inflateView();
+        initAttr(attrs);
+    }
+
+    /**
+     * 僅在xml有效
+     * 手動new Instance時不會調用
+     */
     @Override protected void onFinishInflate() {
         super.onFinishInflate();
         init();
@@ -46,9 +55,4 @@ public abstract class BaseWidgetView extends FrameLayout {
         return baseView;
     }
 
-    protected String getStringAttrOfDefault(TypedArray a, int index, String defValue) {
-        if (a.hasValue(index))
-            return a.getString(index);
-        return defValue;
-    }
 }

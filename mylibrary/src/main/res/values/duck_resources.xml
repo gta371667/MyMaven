@@ -83,6 +83,10 @@
         <attr name="refreshEnabled" format="boolean"/>
     </declare-styleable>
 
+    <declare-styleable name="DuckRecyclerView">
+        <attr name="nestedScrollingEnabled" format="boolean"/>
+    </declare-styleable>
+
     <declare-styleable name="CardTextView">
         <attr name="card_drawable" format="reference|color"/>
         <attr name="card_drawable_tint" format="color"/>

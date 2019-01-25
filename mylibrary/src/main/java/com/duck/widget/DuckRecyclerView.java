@@ -2,12 +2,10 @@ package com.duck.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.ColorInt;
 import android.support.annotation.IntDef;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
@@ -32,8 +30,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DuckListView<T> extends BaseWidgetView {
-    @BindView(R2.id.duck_mSwipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
+public class DuckRecyclerView<T> extends BaseWidgetView {
     @BindView(R2.id.duck_mRecyclerView) RecyclerView mRecyclerView;
 
     @IntDef({Loading, NoData, Error})
@@ -45,37 +42,33 @@ public class DuckListView<T> extends BaseWidgetView {
     public static final int NoData = 2;
     public static final int Error = 3;
 
-    public @ColorInt int swipeColor; //SwipeRefreshLayout旋轉顏色
-    private boolean refreshEnabled;
-
-    private SwipeRefreshLayout.OnRefreshListener onSwipeRefreshListener; //下拉刷新回調
+    private boolean nestedScrollingEnabled;
 
     private BaseQuickAdapter<T, BaseViewHolder> adapter;
     private BaseQuickAdapter.RequestLoadMoreListener loadMoreListener; //加載更多
 
     private View loadingView, noDataView, errorView;
 
-    public DuckListView(@NonNull Context context) {
+    public DuckRecyclerView(@NonNull Context context) {
         super(context);
         init();
     }
 
-    public DuckListView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public DuckRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override protected int getWidgetLayout() {
-        return R.layout.widget_duck_list_view;
+        return R.layout.widget_duck_recyclerview;
     }
 
     /**
      * 初始化屬性相關
      */
     @Override protected void initAttr(AttributeSet attrs) {
-        TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.DuckListView, 0, 0);
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.DuckRecyclerView, 0, 0);
 
-        swipeColor = a.getColor(R.styleable.DuckListView_swipeColor, getResources().getColor(R.color.swipe_default_color));
-        refreshEnabled = a.getBoolean(R.styleable.DuckListView_refreshEnabled, false);
+        nestedScrollingEnabled = a.getBoolean(R.styleable.DuckRecyclerView_nestedScrollingEnabled, true);
 
         a.recycle();
     }
@@ -86,12 +79,10 @@ public class DuckListView<T> extends BaseWidgetView {
     @Override protected void init() {
         ButterKnife.bind(this);
 
-        loadingView = initEmptyView(getContext(), R.layout.rv_load_view, mSwipeRefreshLayout);
-        noDataView = initEmptyView(getContext(), R.layout.rv_nodata_view, mSwipeRefreshLayout);
-        errorView = initEmptyView(getContext(), R.layout.rv_error_view, mSwipeRefreshLayout);
+        loadingView = initEmptyView(getContext(), R.layout.rv_load_view, mRecyclerView);
+        noDataView = initEmptyView(getContext(), R.layout.rv_nodata_view, mRecyclerView);
+        errorView = initEmptyView(getContext(), R.layout.rv_error_view, mRecyclerView);
 
-        //下拉刷新
-        mSwipeRefreshLayout.setOnRefreshListener(this::refreshAll);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
@@ -99,28 +90,7 @@ public class DuckListView<T> extends BaseWidgetView {
      * 更新屬性
      */
     @Override protected void syncAttr() {
-        mSwipeRefreshLayout.setEnabled(refreshEnabled);
-        mSwipeRefreshLayout.setColorSchemeColors(swipeColor);
-    }
-
-    /**
-     * 下拉選轉顏色，支援多色
-     */
-    public void setRefreshColor(@ColorInt int... colorResIds) {
-        mSwipeRefreshLayout.setColorSchemeColors(colorResIds);
-    }
-
-    /**
-     * 下拉刷新全部
-     * 請勿在下拉刷新時手動調用
-     */
-    public void refreshAll() {
-        mSwipeRefreshLayout.setRefreshing(false);
-        clearData();
-
-        if (onSwipeRefreshListener != null) {
-            onSwipeRefreshListener.onRefresh();
-        }
+        mRecyclerView.setNestedScrollingEnabled(nestedScrollingEnabled);
     }
 
     /**
@@ -135,21 +105,9 @@ public class DuckListView<T> extends BaseWidgetView {
         }
     }
 
-    /**
-     * 是否禁止下拉刷新
-     */
-    public void setRefreshEnabled(boolean enable) {
-        refreshEnabled = enable;
-        mSwipeRefreshLayout.setEnabled(enable);
+    public void setNestedScrollingEnabled(boolean enable) {
+        nestedScrollingEnabled = enable;
         syncAttr();
-    }
-
-    /**
-     * 下拉刷新監聽
-     * 刷新時會clear Adapter Data
-     */
-    public void setOnSwipeRefreshListener(SwipeRefreshLayout.OnRefreshListener onSwipeRefreshListener) {
-        this.onSwipeRefreshListener = onSwipeRefreshListener;
     }
 
     public void setLayoutManager(RecyclerView.LayoutManager layoutManager) {
@@ -329,7 +287,7 @@ public class DuckListView<T> extends BaseWidgetView {
     /**
      * Adapter EmptyView
      */
-    public void showEmptyView(@EmptyViewEnum int emptyEnum) {
+    public void showEmptyView(@DuckRecyclerView.EmptyViewEnum int emptyEnum) {
         if (adapter == null) {
             throw new NullPointerException("must init DuckRecyclerView Adapter first");
         }
@@ -349,22 +307,22 @@ public class DuckListView<T> extends BaseWidgetView {
     /**
      * 自訂errorView
      */
-    public void setErrorView(View errorView) {
-        this.errorView = errorView;
+    public void setErrorView(@LayoutRes int layout) {
+        this.errorView = initEmptyView(getContext(), layout, mRecyclerView);
     }
 
     /**
      * 自訂LoadingView
      */
-    public void setLoadingView(View loadingView) {
-        this.loadingView = loadingView;
+    public void setLoadingView(@LayoutRes int layout) {
+        this.loadingView = initEmptyView(getContext(), layout, mRecyclerView);
     }
 
     /**
      * 自訂NoDataView
      */
-    public void setNoDataView(View noDataView) {
-        this.noDataView = noDataView;
+    public void setNoDataView(@LayoutRes int layout) {
+        this.noDataView = initEmptyView(getContext(), layout, mRecyclerView);
     }
 
     /**
@@ -391,10 +349,6 @@ public class DuckListView<T> extends BaseWidgetView {
         noDataView.setOnClickListener(listener);
     }
 
-    public SwipeRefreshLayout getSwipeRefreshLayout() {
-        return mSwipeRefreshLayout;
-    }
-
     public RecyclerView getRecyclerView() {
         return mRecyclerView;
     }
@@ -403,8 +357,8 @@ public class DuckListView<T> extends BaseWidgetView {
         return adapter;
     }
 
-    private static View initEmptyView(Context context, @LayoutRes int layout, @NonNull SwipeRefreshLayout swipeRefreshLayout) {
-        return LayoutInflater.from(context).inflate(layout, (ViewGroup) swipeRefreshLayout.getParent(), false);
+    private static View initEmptyView(Context context, @LayoutRes int layout, @NonNull RecyclerView recyclerView) {
+        return LayoutInflater.from(context).inflate(layout, (ViewGroup) recyclerView.getParent(), false);
     }
 
     /**
@@ -420,7 +374,6 @@ public class DuckListView<T> extends BaseWidgetView {
     public void setLinHelper() {
         new LinearSnapHelper().attachToRecyclerView(getRecyclerView());
     }
-
 
     /**
      * 只搭配水平滾動
