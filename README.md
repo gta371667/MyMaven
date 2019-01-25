@@ -8,10 +8,17 @@ allprojects {
 }
 
 dependencies {
-	implementation 'com.github.gta371667:Xview: {version}'
+	implementation 'com.github.gta371667:Xview:{version}'
 }
-
 ```
+
+| 1 | 2 |
+| --- | --- |
+| 11 | 22 |
+| 33 | 44 |
+
+## 1.MyAttrView  2.HeaderView  3.DuckListView  4.DuckRecyclerView
+
 
 # 1
 ## 2
