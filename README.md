@@ -91,7 +91,7 @@ dependencies {
 | hd_icon_drawable_mHeight | icon高度 | dp (預設40dp) |
 | hd_icon_drawable_mWidth | icon寬度 | dp (預設40dp) |
 | hd_icon_drawable_mPadding | iconPadding | dp (預設5dp) |
-| hd_showInsideStatusBar | 是否根據狀態列高度marginTop | boolean |
+| hd_showInsideStatusBar | 是否根據狀態列高度paddingTop | boolean |
 
 ### DuckListView用法
 包含RecyclerView、SwipeRefreshLayout、封裝BaseRecyclerViewAdapterHelper
