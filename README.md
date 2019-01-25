@@ -93,27 +93,30 @@ dependencies {
 | hd_icon_drawable_mPadding | iconPadding | dp (預設5dp) |
 | hd_showInsideStatusBar | 是否根據狀態列高度marginTop | boolean |
 
-| 1 | 2 |
-| --- | --- |
-| 11 | 22 |
-| 33 | 44 |
+### DuckListView用法
+只包含RecyclerView、封裝BaseRecyclerViewAdapterHelper
+```xml
+  <com.duck.widget.DuckListView
+	android:id="@+id/mDuckRecyclerView2"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	app:refreshEnabled="false"
+	app:swipeColor="@color/colorAccent"
+	/>
+```
+| xml屬性 | 說明 | 單位 |
+| swipeColor | SwipeRefreshLayout顏色 | #ffffff、@color/red |
+| refreshEnabled | 是否可以下拉刷新 | boolean |
 
-
-# 1
-## 2
-### 3
-#### 4
-##### 5
-###### 6
-*斜體*
-
-list
-+ 1
-+ 2
-+ 3
-+ 4
-
-1. 1
-1. 2
-1. 3
-1. 4
+### DuckRecyclerView用法
+只包含RecyclerView、封裝BaseRecyclerViewAdapterHelper
+```xml
+  <com.duck.widget.DuckRecyclerView
+	android:id="@+id/mDuckRecyclerView2"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	app:nestedScrollingEnabled="false"
+	/>
+```
+| xml屬性 | 說明 | 單位 |
+| nestedScrollingEnabled | 是否把滾定交給外層 | boolean |
