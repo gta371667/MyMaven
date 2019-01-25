@@ -1,4 +1,18 @@
 # Xview
+
+```gradle
+allprojects {
+		repositories {
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+dependencies {
+	        implementation 'com.github.gta371667:Xview:Tag'
+	}
+
+```
+
 # 1
 ## 2
 ### 3
