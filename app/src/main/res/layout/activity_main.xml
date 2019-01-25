@@ -17,6 +17,44 @@
         android:orientation="vertical"
         >
 
+        <com.duck.widget.HeaderView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:hd_headerBackground="@drawable/xview_menu"
+            app:hd_headerDrawable="@color/colorAccent"
+            app:hd_headerDrawableTint="@color/colorAccent"
+            app:hd_headerRightIcon="@drawable/xview_menu"
+            app:hd_headerRightIconTint="@color/colorAccent"
+            app:hd_headerText="@string/app_name"
+            app:hd_headerTextColor="@color/colorAccent"
+            app:hd_icon_drawable_mHeight="40dp"
+            app:hd_icon_drawable_mPadding="5dp"
+            app:hd_icon_drawable_mWidth="40dp"
+            app:hd_header_gravity="leftCenter"
+            app:hd_showInsideStatusBar="true"
+            />
+
+        <com.duck.widget.MyAttrView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:av_borderColor="@color/black"
+            app:av_borderWidth="1dp"
+            app:av_contentBackground="@drawable/bg_drawer"
+            app:av_contentText="123"
+            app:av_contentTextColor="@color/black"
+            app:av_contentTextSizeSp="40sp"
+            app:av_icon_drawable_left="@color/colorAccent"
+            app:av_icon_drawable_mHeight="20dp"
+            app:av_icon_drawable_mWidth="20dp"
+            app:av_icon_drawable_margin="5dp"
+            app:av_icon_drawable_tint="@color/colorPrimaryDark"
+            app:av_radius="30dp"
+            app:av_radius_bottomLeft="5dp"
+            app:av_radius_bottomRight="5dp"
+            app:av_radius_topLeft="5dp"
+            app:av_radius_topRight="5dp"
+            />
+
         <com.duck.widget.DuckRecyclerView
             android:id="@+id/mDuckRecyclerView1"
             android:layout_width="match_parent"
@@ -24,11 +62,12 @@
             app:nestedScrollingEnabled="false"
             />
 
-        <com.duck.widget.DuckRecyclerView
+        <com.duck.widget.DuckListView
             android:id="@+id/mDuckRecyclerView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:nestedScrollingEnabled="false"
+            app:refreshEnabled="true"
+            app:swipeColor="@color/colorAccent"
             />
 
     </LinearLayout>

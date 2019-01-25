@@ -55,11 +55,13 @@ public class HeaderView extends BaseWidgetView {
 
     public HeaderView(@NonNull Context context) {
         super(context);
-       init();
+        init();
     }
 
     public HeaderView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init();
+        initAttr(attrs);
     }
 
     @Override protected int getWidgetLayout() {
@@ -97,7 +99,7 @@ public class HeaderView extends BaseWidgetView {
 
         icon_drawable_padding = (int) a.getDimension(R.styleable.HeaderView_hd_icon_drawable_mPadding,
                                                      TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                                                                               10,
+                                                                               5,
                                                                                getResources().getDisplayMetrics()));
 
         a.recycle();
@@ -198,6 +200,7 @@ public class HeaderView extends BaseWidgetView {
             barView.setVisibility(GONE);
         }
 
+        invalidate();
     }
 
     public void setOnMenuPressListener(View.OnClickListener listener) {

@@ -45,11 +45,10 @@ public class MainActivity extends AppCompatActivity {
         mDuckRecyclerView2.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
 
-        MyAttrView myAttrView = new MyAttrView(this);
-        myAttrView.setIconDrawableLeft(R.drawable.ic_arrow_left);
-        myAttrView.setText("asdasd");
-        myAttrView.setIconDrawableTint(R.color.red);
-
-        contentView.addView(myAttrView);
+//        MyAttrView myAttrView = new MyAttrView(this);
+//        myAttrView.setIconDrawableLeft(R.drawable.ic_arrow_left);
+//        myAttrView.setText("asdasd");
+//        myAttrView.setIconDrawableTint(R.color.red);
+//        contentView.addView(myAttrView);
     }
 }

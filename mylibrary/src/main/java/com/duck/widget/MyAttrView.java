@@ -64,6 +64,12 @@ public class MyAttrView extends BaseWidgetView {
         init();
     }
 
+    public MyAttrView(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        init();
+        initAttr(attrs);
+    }
+
     @Override protected int getWidgetLayout() {
         return R.layout.widget_my_attr_view;
     }
@@ -91,7 +97,7 @@ public class MyAttrView extends BaseWidgetView {
         mPaddingBottom = (int) a.getDimension(R.styleable.MyAttrView_av_paddingBottom, 0);
 
         //text
-        contentSizeSp = a.getDimension(R.styleable.MyAttrView_av_contentSizeSp,
+        contentSizeSp = a.getDimension(R.styleable.MyAttrView_av_contentTextSizeSp,
                                        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14, getResources().getDisplayMetrics()));
         contentText = a.getString(R.styleable.MyAttrView_av_contentText);
         contentTextColor = a.getColor(R.styleable.MyAttrView_av_contentTextColor, ContextCompat.getColor(getContext(), R.color.black));
@@ -100,17 +106,17 @@ public class MyAttrView extends BaseWidgetView {
         icon_drawable_tint = a.getColor(R.styleable.MyAttrView_av_icon_drawable_tint, 0);
         icon_drawable_width = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_mWidth,
                                                    TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                                                                             16,
+                                                                             40,
                                                                              getResources().getDisplayMetrics()));
         icon_drawable_height = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_mHeight,
                                                     TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                                                                              16,
+                                                                              40,
                                                                               getResources().getDisplayMetrics()));
         icon_drawable_left = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_left);
         icon_drawable_top = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_top);
         icon_drawable_right = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_right);
         icon_drawable_bottom = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_bottom);
-        icon_drawable_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_margin, 0);
+        icon_drawable_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_margin, 5);
 
         a.recycle();
     }
