@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.widget.LinearLayout;
 
@@ -23,9 +24,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyAttrView extends BaseWidgetView {
-    @BindView(R2.id.mRoundRectView) RoundRectView mRoundRectView;
-    @BindView(R2.id.contentLayout) LinearLayout contentLayout;
-    @BindView(R2.id.mTextImageView) TextImageView mTextImageView;
+    @BindView(R2.id.duck_av_mRoundRectView) RoundRectView mRoundRectView;
+    @BindView(R2.id.duck_av_contentLayout) LinearLayout contentLayout;
+    @BindView(R2.id.duck_av_mTextImageView) TextImageView mTextImageView;
 
     public @Dimension int radius_all; //外框圓角dp
     public @Dimension int radius_topLeft; //上左圓角dp
@@ -56,7 +57,7 @@ public class MyAttrView extends BaseWidgetView {
     public @Dimension int icon_drawable_width; //icon寬
     public @Dimension int icon_drawable_height; //icon高
 
-    private boolean isLike;
+    private boolean isSelect;
 
     public MyAttrView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -161,12 +162,12 @@ public class MyAttrView extends BaseWidgetView {
     /**
      * 是否讚
      */
-    public boolean isLike() {
-        return isLike;
+    public boolean isSelect() {
+        return isSelect;
     }
 
-    public void setLike(boolean isLike) {
-        this.isLike = isLike;
+    public void setSelect(boolean isLike) {
+        this.isSelect = isLike;
     }
 
     /**
@@ -181,16 +182,7 @@ public class MyAttrView extends BaseWidgetView {
      * 設置文字color
      */
     public void setTextColor(@ColorRes int colorRes) {
-        this.contentTextColor = getResources().getColor(colorRes);
-        syncAttr();
-    }
-
-    /**
-     * 設置icon、text顏色
-     */
-    public void setAllColor(@ColorRes int colorRes) {
-        this.contentTextColor = getResources().getColor(colorRes);
-        this.icon_drawable_tint = getResources().getColor(colorRes);
+        this.contentTextColor = ContextCompat.getColor(getContext(), colorRes);
         syncAttr();
     }
 
@@ -238,7 +230,7 @@ public class MyAttrView extends BaseWidgetView {
      * 設置 icon顏色，目前僅支援上下左右全部變色
      */
     public void setIconDrawableTint(@ColorRes int redId) {
-        this.icon_drawable_tint = getResources().getColor(redId);
+        this.icon_drawable_tint = ContextCompat.getColor(getContext(), redId);
         syncAttr();
     }
 

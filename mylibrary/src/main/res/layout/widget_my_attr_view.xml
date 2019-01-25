@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.github.florent37.shapeofview.shapes.RoundRectView xmlns:android="http://schemas.android.com/apk/res/android"
                                                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                       android:id="@+id/mRoundRectView"
+                                                       android:id="@+id/duck_av_mRoundRectView"
                                                        android:layout_width="match_parent"
                                                        android:layout_height="wrap_content"
                                                        android:layout_gravity="center"
@@ -9,7 +9,7 @@
     >
 
     <LinearLayout
-        android:id="@+id/contentLayout"
+        android:id="@+id/duck_av_contentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -18,7 +18,7 @@
         >
 
         <com.duck.widget.card.TextImageView
-            android:id="@+id/mTextImageView"
+            android:id="@+id/duck_av_mTextImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/xview_wechat"

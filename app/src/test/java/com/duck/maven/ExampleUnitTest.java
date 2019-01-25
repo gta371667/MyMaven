@@ -1,4 +1,4 @@
-package com.duck.paypaypig.mymaven;
+package com.duck.maven;
 
 import org.junit.Test;
 

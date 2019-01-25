@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
                                               xmlns:app="http://schemas.android.com/apk/res-auto"
-                                              android:id="@+id/materialCardView"
+                                              android:id="@+id/duck_materialCardView"
                                               android:layout_width="match_parent"
                                               android:layout_height="match_parent"
                                               app:strokeWidth="10dp"
@@ -9,7 +9,7 @@
     >
 
     <LinearLayout
-        android:id="@+id/contentLayout"
+        android:id="@+id/duck_contentLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -20,7 +20,7 @@
         >
 
         <com.duck.widget.card.TextImageView
-            android:id="@+id/mTextImageView"
+            android:id="@+id/duck_mTextImageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/transparent"

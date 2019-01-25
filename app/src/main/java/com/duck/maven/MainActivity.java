@@ -1,8 +1,10 @@
 package com.duck.maven;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 
 import com.duck.maven.adpter.TestAdapter;
 import com.duck.widget.DuckListView;
@@ -41,6 +43,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mDuckListView.setLinHelper();
-
     }
 }

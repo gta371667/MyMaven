@@ -33,8 +33,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DuckListView<T> extends BaseWidgetView {
-    @BindView(R2.id.mRecyclerView) RecyclerView mRecyclerView;
-    @BindView(R2.id.mSwipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R2.id.duck_mSwipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R2.id.duck_mRecyclerView) RecyclerView mRecyclerView;
 
     @IntDef({Loading, NoData, Error})
     @Retention(RetentionPolicy.SOURCE)
@@ -422,14 +422,9 @@ public class DuckListView<T> extends BaseWidgetView {
      */
     public void setPagerSnapHelper() {
         if (getRecyclerView().getLayoutManager().canScrollHorizontally()) {
-//            new PagerSnapHelper().attachToRecyclerView(getRecyclerView());
-
             PagerSnapHelper p = new PagerSnapHelper();
-//            p.findTargetSnapPosition(getRecyclerView().getLayoutManager(), 100, 0);
-
             p.attachToRecyclerView(getRecyclerView());
         }
     }
-
 
 }

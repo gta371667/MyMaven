@@ -27,11 +27,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HeaderView extends BaseWidgetView {
-    @BindView(R2.id.tvHeaderTitle) AppCompatTextView tvHeaderTitle;
-    @BindView(R2.id.menuImg) ImageView menuImg;
-    @BindView(R2.id.headerLayout) ConstraintLayout headerLayout;
-    @BindView(R2.id.barViewV) View barView;
-    @BindView(R2.id.rightImg) ImageView rightImg;
+    @BindView(R2.id.duck_hd_tvHeaderTitle) AppCompatTextView tvHeaderTitle;
+    @BindView(R2.id.duck_hd_menuImg) ImageView menuImg;
+    @BindView(R2.id.duck_hd_headerLayout) ConstraintLayout headerLayout;
+    @BindView(R2.id.duck_hd_barView) View barView;
+    @BindView(R2.id.duck_hd_rightImg) ImageView rightImg;
 
     private String titleText;
     public @ColorInt int titleTextColor;

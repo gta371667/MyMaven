@@ -2,10 +2,13 @@ package com.duck.widget.card;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
-import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.annotation.ColorRes;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 
 import com.duck.mylibrary.R;
@@ -49,7 +52,7 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
         mBottomWidth = typedArray.getDimensionPixelOffset(R.styleable.TextImageView_drawableBottomWidth, 40);
         mBottomHeight = typedArray.getDimensionPixelOffset(R.styleable.TextImageView_drawableBottomHeight, 40);
 
-        drawableTint = typedArray.getColor(R.styleable.TextImageView_drawableTint, -1);
+        drawableTint = typedArray.getColor(R.styleable.TextImageView_drawableTint, 0);
 
         typedArray.recycle();
         setDrawablesSize();
@@ -72,7 +75,6 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
                     setDrawableBounds(compoundDrawables[3], mBottomWidth, mBottomHeight);
                     break;
                 default:
-
                     break;
             }
 
@@ -82,9 +84,8 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
 
     private void setDrawableBounds(Drawable drawable, int width, int height) {
         if (drawable != null) {
-
-            if (drawableTint != -1) {
-                DrawableCompat.setTint(DrawableCompat.wrap(drawable).mutate(), drawableTint);
+            if (drawableTint != 0) {
+                drawable.setColorFilter(new PorterDuffColorFilter(drawableTint, PorterDuff.Mode.SRC_IN));
             }
 
             double scale = ((double) drawable.getIntrinsicHeight()) / ((double) drawable.getIntrinsicWidth());
@@ -103,6 +104,8 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
             }
 
         }
+
+        invalidate();
     }
 
     /**

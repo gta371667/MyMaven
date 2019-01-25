@@ -2,33 +2,33 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
-                                             android:id="@+id/headerLayout"
+                                             android:id="@+id/duck_hd_headerLayout"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
                                              android:background="@color/red_theme"
     >
 
     <View
-        android:id="@+id/barViewV"
+        android:id="@+id/duck_hd_barView"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         />
 
     <ImageView
-        android:id="@+id/menuImg"
+        android:id="@+id/duck_hd_menuImg"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvHeaderTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/duck_hd_tvHeaderTitle"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvHeaderTitle"
+        app:layout_constraintTop_toTopOf="@+id/duck_hd_tvHeaderTitle"
         tools:src="@drawable/xview_menu"
         />
 
     <TextView
-        android:id="@+id/tvHeaderTitle"
+        android:id="@+id/duck_hd_tvHeaderTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
@@ -38,22 +38,22 @@
         android:paddingBottom="10dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/menuImg"
-        app:layout_constraintRight_toLeftOf="@+id/rightImg"
-        app:layout_constraintTop_toBottomOf="@+id/barViewV"
+        app:layout_constraintLeft_toRightOf="@+id/duck_hd_menuImg"
+        app:layout_constraintRight_toLeftOf="@+id/duck_hd_rightImg"
+        app:layout_constraintTop_toBottomOf="@+id/duck_hd_barView"
         tools:text="headerText"
         />
 
     <ImageView
-        android:id="@+id/rightImg"
+        android:id="@+id/duck_hd_rightImg"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvHeaderTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/duck_hd_tvHeaderTitle"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvHeaderTitle"
+        app:layout_constraintTop_toTopOf="@+id/duck_hd_tvHeaderTitle"
         tools:src="@drawable/xview_menu"
         />
 

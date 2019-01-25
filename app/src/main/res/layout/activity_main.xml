@@ -19,25 +19,10 @@
         />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:padding="10dp"
-        android:src="@drawable/xview_wechat"
-        />
-
-    <com.duck.widget.card.CardTextView
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        app:card_borderColor="@color/red_theme"
-        app:card_borderWidth="0dp"
-        app:card_contentText="123456"
-        app:card_content_textColor="@color/red_theme"
-        app:card_drawable="@drawable/ic_arrow_left"
-        app:card_drawable_height="12dp"
-        app:card_drawable_tint="@color/red_theme"
-        app:card_drawable_width="12dp"
-        app:card_padding="10dp"
-        app:card_radius="30dp"
+        android:src="@drawable/ic_logout"
+        android:tint="@color/perpurl"
         />
 
     <com.duck.widget.MyAttrView
@@ -48,11 +33,13 @@
         app:av_borderColor="@color/black"
         app:av_borderWidth="1dp"
         app:av_contentText="-0.0334"
-        app:av_contentTextColor="@color/red_theme"
-        app:av_icon_drawable_bottom="@drawable/xview_wechat"
-        app:av_icon_drawable_left="@drawable/xview_wechat"
-        app:av_icon_drawable_right="@drawable/xview_wechat"
-        app:av_icon_drawable_top="@drawable/xview_wechat"
+        app:av_contentTextColor="#ffffff"
+        app:av_icon_drawable_bottom="@drawable/ic_logout"
+        app:av_icon_drawable_left="@drawable/ic_logout"
+        app:av_icon_drawable_mHeight="100dp"
+        app:av_icon_drawable_mWidth="100dp"
+        app:av_icon_drawable_right="@drawable/ic_logout"
+        app:av_icon_drawable_top="@drawable/ic_logout"
         app:av_padding="5dp"
         app:av_radius_topRight="100dp"
         />
