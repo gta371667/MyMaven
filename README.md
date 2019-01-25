@@ -12,7 +12,7 @@ dependencies {
 }
 ```
 
-## 1.MyAttrView  2.HeaderView  3.DuckListView  4.DuckRecyclerView
+## 包含MyAttrView、HeaderView、DuckListView、DuckRecyclerView
 
 ### MyAttrView用法
 ```xml
