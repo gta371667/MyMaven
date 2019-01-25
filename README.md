@@ -94,7 +94,7 @@ dependencies {
 | hd_showInsideStatusBar | 是否根據狀態列高度marginTop | boolean |
 
 ### DuckListView用法
-只包含RecyclerView、封裝BaseRecyclerViewAdapterHelper
+包含RecyclerView、SwipeRefreshLayout、封裝BaseRecyclerViewAdapterHelper
 ```xml
   <com.duck.widget.DuckListView
 	android:id="@+id/mDuckRecyclerView2"
