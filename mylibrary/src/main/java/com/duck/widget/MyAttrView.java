@@ -11,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.widget.LinearLayout;
 
@@ -238,6 +237,26 @@ public class MyAttrView extends BaseWidgetView {
     public void setIconDrawableTint(@ColorRes int redId) {
         this.icon_drawable_tint = ContextCompat.getColor(getContext(), redId);
         syncAttr();
+    }
+
+    /**
+     * 背景色
+     */
+    public void setContentBackground(Drawable contentBackground) {
+        this.contentBackground = contentBackground;
+        syncAttr();
+    }
+
+    public RoundRectView getmRoundRectView() {
+        return mRoundRectView;
+    }
+
+    public LinearLayout getContentLayout() {
+        return contentLayout;
+    }
+
+    public TextImageView getmTextImageView() {
+        return mTextImageView;
     }
 
 }

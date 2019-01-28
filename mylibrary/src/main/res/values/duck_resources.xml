@@ -74,6 +74,8 @@
         <attr name="hd_icon_drawable_mWidth" format="dimension"/>
         <attr name="hd_icon_drawable_mHeight" format="dimension"/>
         <attr name="hd_icon_drawable_mPadding" format="dimension"/>
+        <attr name="hd_text_marginLeft" format="dimension"/>
+        <attr name="hd_text_marginRight" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="DuckListView">

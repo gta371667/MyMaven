@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
 import com.duck.maven.adpter.TestAdapter;
+import com.duck.widget.DuckListView;
 import com.duck.widget.DuckRecyclerView;
 import com.duck.widget.MyAttrView;
 
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.contentView) LinearLayout contentView;
     @BindView(R.id.mDuckRecyclerView1) DuckRecyclerView mDuckRecyclerView1;
-    @BindView(R.id.mDuckRecyclerView2) DuckRecyclerView mDuckRecyclerView2;
+    @BindView(R.id.mDuckRecyclerView2) DuckListView mDuckRecyclerView2;
 
     List<String> strings = new ArrayList<>();
 

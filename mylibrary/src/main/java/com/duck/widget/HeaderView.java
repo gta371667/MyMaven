@@ -50,6 +50,9 @@ public class HeaderView extends BaseWidgetView {
     public @Dimension int icon_drawable_height; //icon高
     public @Dimension int icon_drawable_padding;
 
+    public @Dimension int hd_text_marginLeft;
+    public @Dimension int hd_text_marginRight;
+
     private View.OnClickListener menuPressListener;
     private View.OnClickListener rightImgListener;
 
@@ -102,6 +105,16 @@ public class HeaderView extends BaseWidgetView {
                                                                                5,
                                                                                getResources().getDisplayMetrics()));
 
+        hd_text_marginLeft = (int) a.getDimension(R.styleable.HeaderView_hd_text_marginLeft,
+                                                  TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                                                                            5,
+                                                                            getResources().getDisplayMetrics()));
+
+        hd_text_marginRight = (int) a.getDimension(R.styleable.HeaderView_hd_text_marginRight,
+                                                   TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                                                                             5,
+                                                                             getResources().getDisplayMetrics()));
+
         a.recycle();
     }
 
@@ -125,6 +138,9 @@ public class HeaderView extends BaseWidgetView {
     @Override protected void syncAttr() {
         tvHeaderTitle.setText(titleText);
         tvHeaderTitle.setTextColor(titleTextColor);
+        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) tvHeaderTitle.getLayoutParams();
+        layoutParams.setMargins(hd_text_marginLeft, 0, hd_text_marginRight, 0);
+
         switch (titleTextGravity) {
             case 1:
                 tvHeaderTitle.setGravity(Gravity.START);

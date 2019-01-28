@@ -31,6 +31,7 @@
             app:hd_icon_drawable_mPadding="5dp"
             app:hd_icon_drawable_mWidth="40dp"
             app:hd_header_gravity="leftCenter"
+            app:hd_text_marginLeft="20dp"
             app:hd_showInsideStatusBar="true"
             />
 
