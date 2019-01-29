@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="@string/str_rv_error"
-        android:textColor="@color/swipe_loading_default_color"
+        android:textColor="@color/duck_rvView_text_color"
         android:textSize="20sp"
         />
 

@@ -22,4 +22,14 @@
         <item name="android:background">@color/colorAccent</item>
     </style>
 
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorAccent">#fff</item>
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+    <style name="ggg" parent="AppTheme">
+        <item name="colorAccent">#fff</item>
+    </style>
+
 </resources>

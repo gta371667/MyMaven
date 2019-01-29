@@ -75,7 +75,7 @@ public class HeaderView extends BaseWidgetView {
         TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.HeaderView, 0, 0);
 
         titleText = a.getString(R.styleable.HeaderView_hd_headerText);
-        titleTextColor = a.getColor(R.styleable.HeaderView_hd_headerTextColor, getResources().getColor(R.color.black));
+        titleTextColor = a.getColor(R.styleable.HeaderView_hd_headerTextColor, getResources().getColor(R.color.duck_text_default_color));
 
 
         titleTextGravity = a.getInt(R.styleable.HeaderView_hd_header_gravity, 3);

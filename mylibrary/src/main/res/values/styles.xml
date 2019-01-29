@@ -7,7 +7,10 @@
         <item name="drawableTopWidth">20dp</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:drawablePadding">3dp</item>
-        <item name="android:background">@color/colorAccent</item>
+    </style>
+
+    <style name="ProgressTheme" parent="Widget.AppCompat.ProgressBar">
+        <item name="colorAccent">@color/duck_rvView_progressBar_color</item>
     </style>
 
 </resources>
