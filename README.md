@@ -123,7 +123,7 @@ dependencies {
 | --- | --- | --- |
 | nestedScrollingEnabled | 是否把滾動交給外層 | boolean |
 
-整體顏色
+### 整體顏色
 ```xml
 <color name="swipe_default_color">#008577</color>
 <color name="swipe_loading_default_color">#000000</color>
