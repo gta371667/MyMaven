@@ -122,3 +122,16 @@ dependencies {
 | xml屬性 | 說明 | 單位 |
 | --- | --- | --- |
 | nestedScrollingEnabled | 是否把滾動交給外層 | boolean |
+
+### 整體color、String
+```xml
+<color name="swipe_default_color">#008577</color>
+<color name="swipe_loading_default_color">#000000</color>
+<color name="duck_rvView_text_color">#000000</color>
+<color name="duck_rvView_progressBar_color">#000000</color>
+<color name="duck_text_default_color">#000000</color>
+
+<string name="str_rv_loading">加载中，请稍后</string>
+<string name="str_rv_error">加载失败</string>
+<string name="str_rv_no_data">无资料</string>
+```
