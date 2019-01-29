@@ -2,7 +2,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="@dimen/dp_40"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
              android:layout_marginBottom="3dp"
     >
 
@@ -20,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_4"
+            android:theme="@style/adapter_progressTheme"
             />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_4"
             android:text="@string/str_rv_loading"
-            android:textColor="@color/swipe_loading_default_color"
+            android:textColor="@color/duck_adapter_loading_color"
             android:textSize="@dimen/sp_14"
             />
     </LinearLayout>
@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/str_rv_error"
-            android:textColor="@color/swipe_loading_default_color"
+            android:textColor="@color/duck_adapter_loading_color"
             />
 
     </FrameLayout>
@@ -65,7 +65,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/str_rv_no_data_prompt"
-            android:textColor="@color/swipe_loading_default_color"
+            android:textColor="@color/duck_adapter_loading_color"
             />
     </FrameLayout>
 

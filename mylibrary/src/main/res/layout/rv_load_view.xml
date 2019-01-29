@@ -13,7 +13,7 @@
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginRight="6dp"
-        android:theme="@style/ProgressTheme"
+        android:theme="@style/rvView_progressTheme"
         />
 
     <TextView
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/str_rv_loading"
-        android:textColor="@color/swipe_loading_default_color"
+        android:textColor="@color/duck_rvView_text_color"
         android:textSize="18sp"
         />
 
