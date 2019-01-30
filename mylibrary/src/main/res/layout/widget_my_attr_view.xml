@@ -8,7 +8,7 @@
 
     >
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/duck_av_contentLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,16 +17,64 @@
         android:orientation="horizontal"
         >
 
-        <com.duck.widget.card.TextImageView
-            android:id="@+id/duck_av_mTextImageView"
+        <TextView
+            android:id="@+id/duck_av_mTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/xview_wechat"
             android:gravity="center"
             android:text="收藏"
             android:textSize="12sp"
             app:backgroundTint="@color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
-    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/duck_av_image_left"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_margin="3dp"
+            android:src="@drawable/xview_wechat"
+            app:layout_constraintBottom_toBottomOf="@+id/duck_av_mTextView"
+            app:layout_constraintRight_toLeftOf="@+id/duck_av_mTextView"
+            app:layout_constraintTop_toTopOf="@+id/duck_av_mTextView"
+            />
+
+        <ImageView
+            android:id="@+id/duck_av_image_top"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_margin="3dp"
+            android:src="@drawable/xview_wechat"
+            app:layout_constraintBottom_toTopOf="@+id/duck_av_mTextView"
+            app:layout_constraintLeft_toLeftOf="@+id/duck_av_mTextView"
+            app:layout_constraintRight_toRightOf="@+id/duck_av_mTextView"
+            />
+
+        <ImageView
+            android:id="@+id/duck_av_image_right"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_margin="3dp"
+            android:src="@drawable/xview_wechat"
+            app:layout_constraintBottom_toBottomOf="@+id/duck_av_mTextView"
+            app:layout_constraintLeft_toRightOf="@+id/duck_av_mTextView"
+            app:layout_constraintTop_toTopOf="@+id/duck_av_mTextView"
+            />
+
+        <ImageView
+            android:id="@+id/duck_av_image_bottom"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_margin="3dp"
+            android:src="@drawable/xview_wechat"
+            app:layout_constraintLeft_toLeftOf="@+id/duck_av_mTextView"
+            app:layout_constraintRight_toRightOf="@+id/duck_av_mTextView"
+            app:layout_constraintTop_toBottomOf="@+id/duck_av_mTextView"
+            />
+
+    </android.support.constraint.ConstraintLayout>
 
 </com.github.florent37.shapeofview.shapes.RoundRectView>

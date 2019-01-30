@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,117 +10,14 @@
     tools:context=".MainActivity"
     >
 
-    <LinearLayout
-        android:id="@+id/contentView"
+
+    <com.duck.widget.DuckListView
+        android:id="@+id/mDuckRecyclerView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black"
-        android:orientation="vertical"
-        >
+        android:layout_height="wrap_content"
+        app:refreshEnabled="true"
+        app:swipeColor="@color/colorAccent"
+        />
 
-        <com.duck.widget.HeaderView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:hd_headerBackground="@drawable/xview_menu"
-            app:hd_headerDrawable="@color/colorAccent"
-            app:hd_headerDrawableTint="@color/colorAccent"
-            app:hd_headerRightIcon="@drawable/xview_menu"
-            app:hd_headerRightIconTint="@color/colorAccent"
-            app:hd_headerText="@string/app_name"
-            app:hd_headerTextColor="@color/colorAccent"
-            app:hd_header_gravity="leftCenter"
-            app:hd_icon_drawable_mHeight="40dp"
-            app:hd_icon_drawable_mPadding="5dp"
-            app:hd_icon_drawable_mWidth="40dp"
-            app:hd_showInsideStatusBar="true"
-            app:hd_text_marginLeft="20dp"
-            />
 
-        <com.duck.widget.MyAttrView
-            android:layout_width="wrap_content"
-            app:av_contentTextColor="#fff"
-            app:av_icon_drawable_left="@color/red"
-            app:av_contentText="123456"
-            android:layout_height="wrap_content"
-            />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/username_wrapper"
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:hint="username"
-            android:textColorHint="#f7f9ff"
-            android:theme="@style/ggg"
-            >
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/username_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="12dp"
-                android:textColor="#f7f9ff"
-                android:textColorHint="#f7f9ff"
-                android:textSize="30sp"
-                />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:hint="username"
-            android:textColorHint="#f7f9ff"
-            >
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#f7f9ff"
-                android:textColorHint="@color/red"
-                />
-        </android.support.design.widget.TextInputLayout>
-
-        <com.duck.widget.MyAttrView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:av_borderColor="@color/black"
-            app:av_borderWidth="1dp"
-            app:av_contentBackground="@drawable/bg_drawer"
-            app:av_contentText="123"
-            app:av_contentTextColor="@color/black"
-            app:av_contentTextSizeSp="40sp"
-            app:av_icon_drawable_left="@color/colorAccent"
-            app:av_icon_drawable_mHeight="20dp"
-            app:av_icon_drawable_mWidth="20dp"
-            app:av_icon_drawable_margin="5dp"
-            app:av_icon_drawable_tint="@color/colorPrimaryDark"
-            app:av_radius="30dp"
-            app:av_radius_bottomLeft="5dp"
-            app:av_radius_bottomRight="5dp"
-            app:av_radius_topLeft="5dp"
-            app:av_radius_topRight="5dp"
-            />
-
-        <com.duck.widget.DuckRecyclerView
-            android:id="@+id/mDuckRecyclerView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:nestedScrollingEnabled="false"
-            />
-
-        <com.duck.widget.DuckListView
-            android:id="@+id/mDuckRecyclerView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:refreshEnabled="true"
-            app:swipeColor="@color/colorAccent"
-            />
-
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
+</LinearLayout>

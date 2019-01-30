@@ -7,9 +7,8 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import com.duck.mylibrary.R;
 
@@ -55,6 +54,7 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
         drawableTint = typedArray.getColor(R.styleable.TextImageView_drawableTint, 0);
 
         typedArray.recycle();
+
         setDrawablesSize();
     }
 
@@ -84,10 +84,6 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
 
     private void setDrawableBounds(Drawable drawable, int width, int height) {
         if (drawable != null) {
-            if (drawableTint != 0) {
-                drawable.setColorFilter(new PorterDuffColorFilter(drawableTint, PorterDuff.Mode.SRC_IN));
-            }
-
             double scale = ((double) drawable.getIntrinsicHeight()) / ((double) drawable.getIntrinsicWidth());
             drawable.setBounds(0, 0, width, height);
             Rect bounds = drawable.getBounds();
@@ -103,9 +99,12 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
                 }
             }
 
+            if (drawableTint != 0) {
+                drawable.setColorFilter(new PorterDuffColorFilter(drawableTint, PorterDuff.Mode.SRC_IN));
+            }
+
         }
 
-        invalidate();
     }
 
     /**
@@ -113,7 +112,6 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
      */
     public void setDrawableTint(@ColorInt int colorInt) {
         drawableTint = colorInt;
-        setDrawablesSize();
     }
 
     /**
@@ -181,7 +179,6 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
         mRightHeight = height;
         mBottomWidth = width;
         mBottomHeight = height;
-        setDrawablesSize();
     }
 
     public void setAllWidth(int width) {
@@ -189,7 +186,6 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
         mTopWidth = width;
         mRightWidth = width;
         mBottomWidth = width;
-        setDrawablesSize();
     }
 
     public void setAllHeight(int height) {
@@ -197,7 +193,6 @@ public class TextImageView extends android.support.v7.widget.AppCompatTextView {
         mTopHeight = height;
         mRightHeight = height;
         mBottomHeight = height;
-        setDrawablesSize();
     }
 
     public void reloadAttr() {

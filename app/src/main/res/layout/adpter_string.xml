@@ -2,39 +2,23 @@
 <android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
                                               xmlns:app="http://schemas.android.com/apk/res-auto"
                                               android:id="@+id/myAttrRound"
-                                              android:layout_width="match_parent"
-                                              android:layout_height="wrap_content"
+                                              android:layout_width="200dp"
+                                              android:layout_height="150dp"
+                                              android:layout_margin="10dp"
+                                              app:cardBackgroundColor="@color/c666666"
                                               app:contentPadding="5dp"
                                               app:strokeColor="@color/colorAccent"
                                               app:strokeWidth="1dp"
 
     >
 
-    <LinearLayout
-        android:id="@+id/myAttrConstraint"
-        android:layout_width="match_parent"
+    <com.duck.widget.MyAttrView
+        android:id="@+id/myAttrV"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="horizontal"
-        >
-
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/myAttrIcon"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_marginRight="3dp"
-            android:src="@mipmap/ic_launcher"
-            />
-
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="收藏"
-            android:textSize="12sp"
-            app:backgroundTint="@color/transparent"
-            />
-    </LinearLayout>
+        app:av_contentText="asdjasdkljasd"
+        app:av_contentTextColor="@color/black"
+        app:av_icon_drawable_left="@mipmap/ic_launcher"
+        />
 
 </android.support.design.card.MaterialCardView>

@@ -3,15 +3,14 @@ package com.duck.maven;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
-import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.duck.maven.adpter.TestAdapter;
+import com.duck.maven.model.TestModel;
 import com.duck.widget.DuckListView;
 import com.duck.widget.DuckRecyclerView;
-import com.duck.widget.MyAttrView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    @BindView(R.id.contentView) LinearLayout contentView;
-    @BindView(R.id.mDuckRecyclerView1) DuckRecyclerView mDuckRecyclerView1;
     @BindView(R.id.mDuckRecyclerView2) DuckListView mDuckRecyclerView2;
 
-    List<String> strings = new ArrayList<>();
+    List<TestModel> strings = new ArrayList<>();
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,24 +29,42 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         for (int i = 0; i <= 100; i++) {
-            strings.add(String.valueOf(i));
+            if (i == 0) {
+                strings.add(new TestModel(true, String.valueOf(i)));
+            } else {
+                strings.add(new TestModel(false, String.valueOf(i)));
+            }
         }
-
-        TestAdapter testAdapter = new TestAdapter(strings);
-        mDuckRecyclerView1.setAdapter(testAdapter);
-        mDuckRecyclerView1.clearData();
-        mDuckRecyclerView1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        mDuckRecyclerView1.setLoadingView(R.layout.adpter_string);
-        mDuckRecyclerView1.showEmptyView(DuckRecyclerView.Loading);
 
         mDuckRecyclerView2.setAdapter(new TestAdapter(strings));
         mDuckRecyclerView2.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
+        mDuckRecyclerView2.setAdapterOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                TestModel model = (TestModel) adapter.getItem(position);
+                model.setSelect(!model.isSelect());
+                adapter.notifyItemChanged(position);
+            }
+        });
 
-//        MyAttrView myAttrView = new MyAttrView(this);
-//        myAttrView.setIconDrawableLeft(R.drawable.ic_arrow_left);
-//        myAttrView.setText("asdasd");
-//        myAttrView.setIconDrawableTint(R.color.red);
-//        contentView.addView(myAttrView);
+        mDuckRecyclerView2.setOnSwipeRefreshListener(() -> {
+            mDuckRecyclerView2.showEmptyView(DuckListView.Loading);
+            initModel();
+            mDuckRecyclerView2.loadMoreEnd();
+        });
+
     }
+
+    private List<TestModel> initModel() {
+        strings.clear();
+        for (int i = 0; i <= 100; i++) {
+            if (i == 0) {
+                strings.add(new TestModel(true, String.valueOf(i)));
+            } else {
+                strings.add(new TestModel(false, String.valueOf(i)));
+            }
+        }
+        return strings;
+    }
+
 }

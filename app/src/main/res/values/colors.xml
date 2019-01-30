@@ -19,4 +19,9 @@
     <!--<color name="mtrl_textinput_disabled_color" tools:override="true">#fff</color>-->
     <!--<color name="mtrl_textinput_filled_box_default_background_color" tools:override="true">#fff</color>-->
     <!--<color name="mtrl_textinput_hovered_box_stroke_color" tools:override="true">#fff</color>-->
+
+    <color name="c1d9625">#1d9625</color>
+    <color name="c9d7e1f">#9d7e1f</color>
+
+    <color name="c666666">#666666</color>
 </resources>
