@@ -9,13 +9,12 @@ import android.support.annotation.Dimension;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StyleableRes;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.duck.mylibrary.R;
@@ -59,9 +58,16 @@ public class MyAttrView extends BaseWidgetView {
     public Drawable icon_drawable_right;
     public Drawable icon_drawable_bottom;
     public @ColorInt int icon_drawable_tint;  //icon顏色
-    public @Dimension int icon_drawable_margin;
     public @Dimension int icon_drawable_width; //icon寬
     public @Dimension int icon_drawable_height; //icon高
+
+
+    private final int icon_default_margin = -1;
+    public @Dimension int icon_drawable_margin;
+    public @Dimension int icon_drawable_left_margin;
+    public @Dimension int icon_drawable_top_margin;
+    public @Dimension int icon_drawable_right_margin;
+    public @Dimension int icon_drawable_bottom_margin;
 
     private boolean isSelect;
 
@@ -123,7 +129,12 @@ public class MyAttrView extends BaseWidgetView {
         icon_drawable_top = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_top);
         icon_drawable_right = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_right);
         icon_drawable_bottom = a.getDrawable(R.styleable.MyAttrView_av_icon_drawable_bottom);
-        icon_drawable_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_margin, 3);
+
+        icon_drawable_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_margin, icon_default_margin);
+        icon_drawable_left_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_left_margin, 3);
+        icon_drawable_top_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_top_margin, 3);
+        icon_drawable_right_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_right_margin, 3);
+        icon_drawable_bottom_margin = (int) a.getDimension(R.styleable.MyAttrView_av_icon_drawable_bottom_margin, 3);
 
         a.recycle();
     }
@@ -161,27 +172,53 @@ public class MyAttrView extends BaseWidgetView {
         mTextView.setText(contentText);
         mTextView.setTextColor(contentTextColor);
 
-        setImageView(imgLeft);
-        setImageView(imgTop);
-        setImageView(imgRight);
-        setImageView(imgBottom);
+        setImageView(0, imgLeft);
+        setImageView(1, imgTop);
+        setImageView(2, imgRight);
+        setImageView(3, imgBottom);
 
         imgLeft.setVisibility(icon_drawable_left != null ? VISIBLE : GONE);
         imgTop.setVisibility(icon_drawable_top != null ? VISIBLE : GONE);
         imgRight.setVisibility(icon_drawable_right != null ? VISIBLE : GONE);
         imgBottom.setVisibility(icon_drawable_bottom != null ? VISIBLE : GONE);
 
-        imgLeft.setImageDrawable(icon_drawable_left);
-        imgTop.setImageDrawable(icon_drawable_top);
-        imgRight.setImageDrawable(icon_drawable_right);
-        imgBottom.setImageDrawable(icon_drawable_bottom);
+        if (icon_drawable_left != null) {
+            imgLeft.setImageDrawable(icon_drawable_left);
+        }
+        if (icon_drawable_top != null) {
+            imgTop.setImageDrawable(icon_drawable_top);
+        }
+        if (icon_drawable_right != null) {
+            imgRight.setImageDrawable(icon_drawable_right);
+        }
+        if (icon_drawable_bottom != null) {
+            imgBottom.setImageDrawable(icon_drawable_bottom);
+        }
     }
 
-    private void setImageView(ImageView imageView) {
+    private void setImageView(int i, ImageView imageView) {
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
         layoutParams.width = icon_drawable_width;
         layoutParams.height = icon_drawable_height;
-        layoutParams.setMargins(icon_drawable_margin, icon_drawable_margin, icon_drawable_margin, icon_drawable_margin);
+
+        switch (i) {
+            case 0: //左icon
+                int left = icon_drawable_margin != icon_default_margin ? icon_drawable_margin : icon_drawable_left_margin;
+                layoutParams.setMargins(0, 0, left, 0);
+                break;
+            case 1: //上icon
+                int top = icon_drawable_margin != icon_default_margin ? icon_drawable_margin : icon_drawable_top_margin;
+                layoutParams.setMargins(0, 0, 0, top);
+                break;
+            case 2: //右icon
+                int right = icon_drawable_margin != icon_default_margin ? icon_drawable_margin : icon_drawable_right_margin;
+                layoutParams.setMargins(right, 0, 0, 0);
+                break;
+            case 3: //下icon
+                int bottom = icon_drawable_margin != icon_default_margin ? icon_drawable_margin : icon_drawable_bottom_margin;
+                layoutParams.setMargins(0, bottom, 0, 0);
+                break;
+        }
 
         if (icon_drawable_tint != 0) {
             imageView.setColorFilter(icon_drawable_tint);

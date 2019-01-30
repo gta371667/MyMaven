@@ -25,11 +25,17 @@
     <attr name="contentBackground" format="reference|color"/>
 
     <declare-styleable name="MyAttrView">
-        <attr name="av_icon_drawable_margin" format="dimension"/>
         <attr name="av_icon_drawable_left" format="reference"/>
         <attr name="av_icon_drawable_top" format="reference"/>
         <attr name="av_icon_drawable_right" format="reference"/>
         <attr name="av_icon_drawable_bottom" format="reference"/>
+
+        <attr name="av_icon_drawable_margin" format="dimension"/>
+        <attr name="av_icon_drawable_left_margin" format="dimension"/>
+        <attr name="av_icon_drawable_top_margin" format="dimension"/>
+        <attr name="av_icon_drawable_right_margin" format="dimension"/>
+        <attr name="av_icon_drawable_bottom_margin" format="dimension"/>
+
         <attr name="av_icon_drawable_mWidth" format="dimension"/>
         <attr name="av_icon_drawable_mHeight" format="dimension"/>
         <attr name="av_icon_drawable_tint" format="color"/>

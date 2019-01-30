@@ -16,9 +16,12 @@
         android:id="@+id/myAttrV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/swipe_default_color"
         app:av_contentText="asdjasdkljasd"
         app:av_contentTextColor="@color/black"
-        app:av_icon_drawable_left="@mipmap/ic_launcher"
+        app:av_icon_drawable_bottom="@drawable/xview_wechat"
+        app:av_icon_drawable_left="@color/design_default_color_primary_dark"
+        app:av_icon_drawable_right="@mipmap/ic_launcher"
         />
 
 </android.support.design.card.MaterialCardView>
