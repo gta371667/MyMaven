@@ -230,4 +230,13 @@ public class HeaderView extends BaseWidgetView {
     public ImageView getMenuImg() {
         return menuImg;
     }
+
+    public AppCompatTextView getTvHeaderTitle() {
+        return tvHeaderTitle;
+    }
+
+    public void setTitleText(String title) {
+        this.titleText = title;
+        syncAttr();
+    }
 }

@@ -10,6 +10,12 @@
     tools:context=".MainActivity"
     >
 
+    <com.duck.widget.HeaderView
+        android:id="@+id/header"
+        app:hd_headerText="666"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
     <com.duck.widget.DuckListView
         android:id="@+id/mDuckRecyclerView2"
